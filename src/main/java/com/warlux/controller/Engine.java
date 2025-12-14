@@ -1,71 +1,146 @@
 package com.warlux.controller;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import javax.swing.JLabel;
-import javax.swing.Timer;
-
 import com.warlux.controller.gamestates.Commons;
 import com.warlux.controller.gamestates.GameOver;
 import com.warlux.controller.gamestates.IntroScreen;
 import com.warlux.controller.gamestates.MenuScreen;
-import com.warlux.domain.objetos.Puntero;
+import com.warlux.controller.gamestates.Overworld;
+import com.warlux.controller.gamestates.Playing;
 import com.warlux.domain.objetos.Scorecard;
 import com.warlux.domain.pistas.Nivel;
-import com.warlux.domain.pistas.Pista;
-import com.warlux.view.Principal;
+import com.warlux.view.Itemboard;
 import com.warlux.view.Scoreboard;
 import com.warlux.view.Tablero;
+import com.warlux.view.editorNivel.VistaCrearNivel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class Engine implements ActionListener, Commons {
 
 	public static GameState currentState;
+	public final int SPEED = 2;
 
-	private Puntero puntero;
 	private Scorecard score;
 	private Timer timer;
-	private Nivel nivel;
-	private NivelController controller;
-	private BloqueController bc;
-	private PistaController pc;
+	private ItemController ic;
 	private Tablero tablero;
 	private Scoreboard scoreboard;
-	private JLabel consoleLabel = new JLabel();
+	private Itemboard itemboard;
 	private Principal principal;
 	private MenuScreen menuScreen;
+	private Playing playing;
+	private Overworld overworld;
 	private IntroScreen introScreen;
 	private GameOver gameOver;
-	private UIController ui;
 
-	public Engine() {
-		controller = new NivelController();
-		bc = new BloqueController();
-		pc = new PistaController();
-		nivel = controller.buscarNivel("default");
-		puntero = new Puntero(nivel.getStartX(), nivel.getStartY());
-		bc.activarBloque(nivel.getPosicion()[nivel.getStartX() / 100][nivel
-				.getStartY() / 100]);
+	public Engine() {				
 		scoreboard = new Scoreboard();
+		itemboard = new Itemboard();
 		score = new Scorecard();
-		ui = new UIController(scoreboard, consoleLabel, score);
 		tablero = new Tablero(this);
 		timer = new Timer(10, this);
 		currentState = GameState.IntroScreen;
 		menuScreen = new MenuScreen(tablero);
 		introScreen = new IntroScreen(tablero);
+		overworld = new Overworld(tablero, score);
 		gameOver = new GameOver();
-		principal = new Principal(this);
+		principal = new Principal();
 		desactivarFrames();
-		timer.setInitialDelay(2500);
+		timer.setInitialDelay(4400);
 		timer.start();
+		principal.setVisible(true);
 	}
+
+	public void desactivarFrames(){
+		scoreboard.setVisible(false);
+		itemboard.setVisible(false);
+		tablero.aumentarTamaño();
+		tablero.setBackground(Color.BLACK);
+		principal.pack();
+	}
+	
+	public void activarFrames(){
+		scoreboard.setVisible(true);
+		itemboard.setVisible(true);
+		tablero.reducirTamaño();
+		principal.pack();
+	}
+	
+	public void entrarNivel(){
+		Nivel nivel = overworld.getOc().getNivelSeleccionado();
+		if(nivel != null){
+			playing = new Playing(tablero, nivel, score, scoreboard, itemboard);
+			activarFrames();
+			score.setNivel(nivel.getIdNivel());
+			score.inicializarBolsaNivel();
+			Engine.currentState = GameState.Playing;
+		}
+	}
+	
+	public void entrarOverworld(){
+		Engine.currentState = GameState.Overworld;
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		if(currentState == GameState.Playing){
+			playing.accion(e);
+		} else {
+			if(currentState == GameState.Overworld){
+				overworld.accion(e);
+			} else {
+				if(currentState == GameState.IntroScreen){
+					currentState = GameState.MenuScreen;
+				}
+				if(currentState == GameState.GameOver){
+					desactivarFrames();
+				}
+			}			
+		}
+		tablero.repaint();
+	}
+
+	public void paintGame(Graphics g) {
+		Graphics2D g2d = (Graphics2D) g;
+		if(currentState == GameState.Playing){
+			playing.draw(g2d);
+		} else {
+			if(currentState == GameState.Overworld){
+				overworld.draw(g2d);
+			} else {
+				if(currentState == GameState.NivelCompleto){				
+					desactivarFrames();
+					entrarOverworld();
+				}
+				if(currentState == GameState.MenuScreen){				
+					menuScreen.draw(g2d);
+				}
+				if(currentState == GameState.IntroScreen){				
+					introScreen.draw(g2d);
+				}
+				if(currentState == GameState.GameOver){
+					gameOver.draw(g2d);
+				}				
+			}
+		}
+		Toolkit.getDefaultToolkit().sync();
+		g.dispose();
+
+	}
+	
+
 
 	public Tablero getTablero() {
 		return tablero;
@@ -75,146 +150,164 @@ public class Engine implements ActionListener, Commons {
 		return scoreboard;
 	}
 
-	public JLabel getConsoleLabel() {
-		return consoleLabel;
+	public Itemboard getItemboard() {
+		return itemboard;
 	}
-
-	public Puntero getPuntero() {
-		return puntero;
-	}
-
+	
 	public Principal getPrincipal() {
 		return principal;
 	}
 
-	public UIController getUi() {
-		return ui;
+	public ItemController getIc() {
+		return ic;
+	}
+
+	public void setScore(Scorecard score) {
+		this.score = score;
 	}
 
 	public Scorecard getScore() {
 		return score;
 	}
 
-	public void desactivarFrames(){
-		scoreboard.setVisible(false);
-		consoleLabel.setVisible(false);
-		principal.pack();
-	}
-	
-	public void activarFrames(){
-		scoreboard.setVisible(true);
-		consoleLabel.setVisible(true);
-		tablero.setBackground(Color.WHITE);
-		principal.pack();
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-		if(currentState == GameState.Playing){
-			Rectangle rectanglePuntero = puntero.getBounds();
-			ArrayList<Rectangle> rectanglePista = nivel.getColisiones();
-			boolean flag = true;
-			for (Rectangle colision : rectanglePista) {
-				if (colision.intersects(rectanglePuntero))
-					flag = false;
-			}
-			controlarActivacionPistas();
-			puntero.logic(flag);			
-		} else {
-			if(currentState == GameState.IntroScreen){
-				currentState = GameState.MenuScreen;
-			}
-		}
-		tablero.repaint();
+	public Playing getPlaying() {
+		return playing;
 	}
 
-	private void controlarActivacionPistas() {
-		Rectangle rectanglePuntero = puntero.getBounds();
-		Pista pistaActual = nivel.getPista(puntero.getX(), puntero.getY());
-
-		if (!pistaActual.isActivada() && !pistaActual.isIngresoInterseccion()) {
-			if (pistaActual.getSeparadorSur() != null
-					&& pistaActual.getPaseSur().contains(rectanglePuntero)) {
-				Pista pistaSur = nivel.getPistaSur(puntero.getX(),
-						puntero.getY());
-				if (!pistaActual.getBloque().getId()
-						.equals(pistaSur.getBloque().getId())) {
-					bc.cambiarBloque(pistaSur, pistaActual, "sur");
-					pc.activarPaseBloqueCerrado(pistaActual,
-							pistaActual.getSeparadorSur());
-				}
-			}
-			if (pistaActual.getSeparadorNorte() != null
-					&& pistaActual.getPaseNorte().contains(rectanglePuntero)) {
-				Pista pistaNorte = nivel.getPistaNorte(puntero.getX(),
-						puntero.getY());
-				if (!pistaActual.getBloque().getId()
-						.equals(pistaNorte.getBloque().getId())) {
-					bc.cambiarBloque(pistaNorte, pistaActual, "norte");
-					pc.activarPaseBloqueCerrado(pistaActual,
-							pistaActual.getSeparadorNorte());
-				}
-			}
-			if (pistaActual.getSeparadorEste() != null
-					&& pistaActual.getPaseEste().contains(rectanglePuntero)) {
-				Pista pistaEste = nivel.getPistaEste(puntero.getX(),
-						puntero.getY());
-				if (!pistaActual.getBloque().getId()
-						.equals(pistaEste.getBloque().getId())) {
-					bc.cambiarBloque(pistaEste, pistaActual, "este");
-					pc.activarPaseBloqueCerrado(pistaActual,
-							pistaActual.getSeparadorEste());
-				}
-			}
-			if (pistaActual.getSeparadorOeste() != null
-					&& pistaActual.getPaseOeste().contains(rectanglePuntero)) {
-				Pista pistaOeste = nivel.getPistaOeste(puntero.getX(),
-						puntero.getY());
-				if (!pistaActual.getBloque().getId()
-						.equals(pistaOeste.getBloque().getId())) {
-					bc.cambiarBloque(pistaOeste, pistaActual, "oeste");
-					pc.activarPaseBloqueCerrado(pistaActual,
-							pistaActual.getSeparadorOeste());
-				}
-			}
-		} else {
-			if (pc.comprobarCierreInterseccion(pistaActual, rectanglePuntero)) {
-				bc.activarBloque(pistaActual);
-				pc.desactivarPaseBloqueCerrado(pistaActual);
-			}
-		}
+	public MenuScreen getMenuScreen() {
+		return menuScreen;
 	}
 
-	public void paintGame(Graphics g) {
-		Graphics2D g2d = (Graphics2D) g;
-		if(currentState == GameState.Playing){
-			g2d.translate(300 / 2 - puntero.getX(), 300 / 2 - puntero.getY());
-			g2d.setColor(Color.red);
-			for (int i = 0; i < nivel.getAncho(); i++) {
-				for (int j = 0; j < nivel.getAlto(); j++) {
-					if (nivel.getPosicion()[i][j] != null
-							&& nivel.getPosicion()[i][j].isVisible()) {
-						g2d.drawImage(nivel.getPosicion()[i][j].getModelo()
-								.getImagen(), nivel.getPosicion()[i][j].getX(),
-								nivel.getPosicion()[i][j].getY(), tablero);
-						if (nivel.getPosicion()[i][j].getPaseBloqueCerrado() != null)
-							g2d.fill(nivel.getPosicion()[i][j]
-									.getPaseBloqueCerrado());
+	public void setMenuScreen(MenuScreen menuScreen) {
+		this.menuScreen = menuScreen;
+	}
+
+	public void setPlaying(Playing playing) {
+		this.playing = playing;
+	}
+
+	public Overworld getOverworld() {
+		return overworld;
+	}
+
+	public IntroScreen getIntroScreen() {
+		return introScreen;
+	}
+
+	public GameOver getGameOver() {
+		return gameOver;
+	}
+
+	private class Listener extends KeyAdapter implements Commons {
+		
+		@Override
+		public void keyPressed(KeyEvent e) {
+			int key = e.getKeyCode();
+			if (Engine.currentState == GameState.Playing) {
+				switch (key) {
+				case KeyEvent.VK_RIGHT:
+					getPlaying().getPuntero().setDireccion("este");
+					getPlaying().getPuntero().setDx(SPEED);
+					break;
+				case KeyEvent.VK_LEFT:
+					getPlaying().getPuntero().setDireccion("oeste");
+					getPlaying().getPuntero().setDx(-SPEED);
+					break;
+				case KeyEvent.VK_UP:
+					getPlaying().getPuntero().setDireccion("norte");
+					getPlaying().getPuntero().setDy(-SPEED);
+					break;
+				case KeyEvent.VK_DOWN:
+					getPlaying().getPuntero().setDireccion("sur");
+					getPlaying().getPuntero().setDy(SPEED);
+					break;
+				case KeyEvent.VK_CONTROL:
+					getPlaying().getUi().cambiarSiguienteItem();
+					break;
+				case KeyEvent.VK_SPACE:
+					getPlaying().usarItem();
+					break;
+				}
+			} else {
+				if (Engine.currentState == GameState.Overworld) {
+					switch (key) {
+					case KeyEvent.VK_RIGHT:
+						getOverworld().moverPuntero("este");
+						break;
+					case KeyEvent.VK_LEFT:
+						getOverworld().moverPuntero("oeste");
+						break;
+					case KeyEvent.VK_UP:
+						getOverworld().moverPuntero("norte");
+						break;
+					case KeyEvent.VK_DOWN:
+						getOverworld().moverPuntero("sur");
+						break;
+					case KeyEvent.VK_ENTER:
+						entrarNivel();
 					}
 				}
+				if (Engine.currentState == GameState.MenuScreen) {
+					if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+						entrarOverworld();		
+					}
+					if (e.getKeyCode() == KeyEvent.VK_E) {
+						new VistaCrearNivel().setVisible(true);
+						getPrincipal().setVisible(false);
+					}
+
+				}
+
 			}
-			g2d.drawImage(puntero.getVehiculo().getImagen(), puntero.getX(),
-					puntero.getY(), tablero);
-			Toolkit.getDefaultToolkit().sync();
-			g.dispose();
-		} else {
-			if(currentState == GameState.MenuScreen){				
-				menuScreen.draw(g2d);
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			if (Engine.currentState == GameState.Playing) {
+				int key = e.getKeyCode();
+				if (key == KeyEvent.VK_UP)
+					getPlaying().getPuntero().setDy(0);
+				if (key == KeyEvent.VK_DOWN)
+					getPlaying().getPuntero().setDy(0);
+				if (key == KeyEvent.VK_RIGHT)
+					getPlaying().getPuntero().setDx(0);
+				if (key == KeyEvent.VK_LEFT)
+					getPlaying().getPuntero().setDx(0);
 			}
-			if(currentState == GameState.IntroScreen){				
-				introScreen.draw(g2d);
-			}
-		}		
+		}
+	}
+	
+	private class Principal extends JFrame {
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		private JPanel panelNorte = new JPanel();
+		private JPanel panelCentro = new JPanel();
+		private JPanel panelSur = new JPanel();
+
+		public Principal() {
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			setSize(300, 600);
+			setResizable(false);
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			setLocation((screenSize.width - getWidth()) / 2, (screenSize.height - getHeight()) / 2);
+			setFocusable(true);
+			addKeyListener(new Listener());
+			Container contentPane = getContentPane();
+			contentPane.setLayout(new BorderLayout());		
+			contentPane.add(panelNorte, BorderLayout.NORTH);
+			contentPane.add(panelCentro, BorderLayout.CENTER);
+			contentPane.add(panelSur, BorderLayout.SOUTH);
+			panelNorte.setLayout(new FlowLayout(FlowLayout.CENTER));
+			panelNorte.add(getScoreboard());
+			panelCentro.setLayout(new FlowLayout(FlowLayout.CENTER));
+			panelCentro.add(getTablero());
+			panelSur.setLayout(new FlowLayout(FlowLayout.CENTER));		
+			panelSur.add(getItemboard());
+			pack();
+		}
 
 	}
-
 }

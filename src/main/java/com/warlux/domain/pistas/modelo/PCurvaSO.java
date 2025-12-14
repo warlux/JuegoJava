@@ -9,6 +9,7 @@ public class PCurvaSO extends Modelo {
 
 	public PCurvaSO() {
 		super();
+		nombre = "pCurvaSO";
 		imagen = new ImageIcon("src/main/resources/modeloPistas/pCurvaSO.png");
 		Rectangle colision1 = new Rectangle(0, 0, 100, 30);
 		Rectangle colision2 = new Rectangle(0, 70, 30, 30);

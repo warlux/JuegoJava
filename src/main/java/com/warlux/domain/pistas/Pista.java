@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.warlux.domain.objetos.Item;
+import com.warlux.domain.objetos.items.Item;
 import com.warlux.domain.pistas.modelo.Modelo;
 import com.warlux.domain.pistas.modelo.PRectaH;
 
@@ -28,16 +28,18 @@ public class Pista implements Serializable{
 	private Rectangle paseInterseccionSur;
 	private Rectangle paseInterseccionEste;
 	private Rectangle paseInterseccionOeste;
-	private Rectangle paseInterseccionNorteCondicional;
-	private Rectangle paseInterseccionSurCondicional;
-	private Rectangle paseInterseccionEsteCondicional;
-	private Rectangle paseInterseccionOesteCondicional;
+	private Rectangle paseNorteCondicional;
+	private Rectangle paseSurCondicional;
+	private Rectangle paseEsteCondicional;
+	private Rectangle paseOesteCondicional;
+	private Rectangle zonaRampa;
 	private Rectangle sensorPase;
 	private boolean ingresoNorte;
 	private boolean ingresoSur;
 	private boolean ingresoEste;
 	private boolean ingresoOeste;
 	private boolean ingresoInterseccion;
+	private boolean ingresoPuente;
 	private Rectangle paseBloqueCerrado;
 	private boolean activada;
 	private boolean visible;
@@ -68,16 +70,18 @@ public class Pista implements Serializable{
 		calcularPaseInterseccionNorteCondicional();
 		calcularPaseInterseccionSurCondicional();
 		calcularSensorPase();
+		calcularZonaRampa();
 //		cerrarPaseInterseccion();
 		ingresoNorte = false;
 		ingresoSur = false;
 		ingresoEste = false;
 		ingresoOeste = false;
 		ingresoInterseccion = false;
+		ingresoPuente = false;
 		activada = false;
 		visible = false;
 	}
-
+	
 	public void calcularPaseEste() {
 		if (modelo.getPaseEste() != null) {
 			Rectangle r = new Rectangle((int) (x + modelo.getPaseEste().getX()),
@@ -208,56 +212,67 @@ public class Pista implements Serializable{
 	}
 	
 	public void calcularPaseInterseccionEsteCondicional() {
-		if (modelo.getPaseInterseccionEsteCondicional() != null) {
-			Rectangle r = new Rectangle((int) (x + modelo.getPaseInterseccionEsteCondicional().getX()),
-					(int) (y + modelo.getPaseInterseccionEsteCondicional().getY()), (int) modelo
-							.getPaseInterseccionEsteCondicional().getWidth(), (int) modelo.getPaseInterseccionEsteCondicional()
+		if (modelo.getPaseEsteCondicional() != null) {
+			Rectangle r = new Rectangle((int) (x + modelo.getPaseEsteCondicional().getX()),
+					(int) (y + modelo.getPaseEsteCondicional().getY()), (int) modelo
+							.getPaseEsteCondicional().getWidth(), (int) modelo.getPaseEsteCondicional()
 							.getHeight());
-			paseInterseccionEsteCondicional = r;
+			paseEsteCondicional = r;
 		}
 		
 	}
 	
 	public void calcularPaseInterseccionOesteCondicional() {
-		if (modelo.getPaseInterseccionOesteCondicional() != null) {
-			Rectangle r = new Rectangle((int) (x + modelo.getPaseInterseccionOesteCondicional().getX()),
-					(int) (y + modelo.getPaseInterseccionOesteCondicional().getY()), (int) modelo
-							.getPaseInterseccionOesteCondicional().getWidth(), (int) modelo.getPaseInterseccionOesteCondicional()
+		if (modelo.getPaseOesteCondicional() != null) {
+			Rectangle r = new Rectangle((int) (x + modelo.getPaseOesteCondicional().getX()),
+					(int) (y + modelo.getPaseOesteCondicional().getY()), (int) modelo
+							.getPaseOesteCondicional().getWidth(), (int) modelo.getPaseOesteCondicional()
 							.getHeight());
-			paseInterseccionOesteCondicional = r;
+			paseOesteCondicional = r;
 		}
 		
 	}
 	
 	public void calcularPaseInterseccionNorteCondicional() {
-		if (modelo.getPaseInterseccionNorteCondicional() != null) {
-			Rectangle r = new Rectangle((int) (x + modelo.getPaseInterseccionNorteCondicional().getX()),
-					(int) (y + modelo.getPaseInterseccionNorteCondicional().getY()), (int) modelo
-							.getPaseInterseccionNorteCondicional().getWidth(), (int) modelo.getPaseInterseccionNorteCondicional()
+		if (modelo.getPaseNorteCondicional() != null) {
+			Rectangle r = new Rectangle((int) (x + modelo.getPaseNorteCondicional().getX()),
+					(int) (y + modelo.getPaseNorteCondicional().getY()), (int) modelo
+							.getPaseNorteCondicional().getWidth(), (int) modelo.getPaseNorteCondicional()
 							.getHeight());
-			paseInterseccionNorteCondicional = r;
+			paseNorteCondicional = r;
 		}
 		
 	}
 	
 	public void calcularPaseInterseccionSurCondicional() {
-		if (modelo.getPaseInterseccionSurCondicional() != null) {
-			Rectangle r = new Rectangle((int) (x + modelo.getPaseInterseccionSurCondicional().getX()),
-					(int) (y + modelo.getPaseInterseccionSurCondicional().getY()), (int) modelo
-							.getPaseInterseccionSurCondicional().getWidth(), (int) modelo.getPaseInterseccionSurCondicional()
+		if (modelo.getPaseSurCondicional() != null) {
+			Rectangle r = new Rectangle((int) (x + modelo.getPaseSurCondicional().getX()),
+					(int) (y + modelo.getPaseSurCondicional().getY()), (int) modelo
+							.getPaseSurCondicional().getWidth(), (int) modelo.getPaseSurCondicional()
 							.getHeight());
-			paseInterseccionSurCondicional = r;
+			paseSurCondicional = r;
 		}
 		
 	}
 	
 	public void calcularSensorPase() {
-		if (modelo.getSensorPase() != null) {
-			Rectangle r = new Rectangle((int) (x + modelo.getSensorPase().getX()),
-					(int) (y + modelo.getSensorPase().getY()), (int) modelo
-							.getSensorPase().getWidth(), (int) modelo.getSensorPase()
+		if (modelo.getZonaMedio() != null) {
+			Rectangle r = new Rectangle((int) (x + modelo.getZonaMedio().getX()),
+					(int) (y + modelo.getZonaMedio().getY()), (int) modelo
+							.getZonaMedio().getWidth(), (int) modelo.getZonaMedio()
 							.getHeight());
 			sensorPase = r;
+		}
+		
+	}
+	
+	public void calcularZonaRampa() {
+		if (modelo.getZonaRampa() != null) {
+			Rectangle r = new Rectangle((int) (x + modelo.getZonaRampa().getX()),
+					(int) (y + modelo.getZonaRampa().getY()), (int) modelo
+							.getZonaRampa().getWidth(), (int) modelo.getZonaRampa()
+							.getHeight());
+			zonaRampa = r;
 		}
 		
 	}
@@ -384,20 +399,20 @@ public class Pista implements Serializable{
 		return paseBloqueCerrado;
 	}
 
-	public Rectangle getPaseInterseccionNorteCondicional() {
-		return paseInterseccionNorteCondicional;
+	public Rectangle getPaseNorteCondicional() {
+		return paseNorteCondicional;
 	}
 
-	public Rectangle getPaseInterseccionSurCondicional() {
-		return paseInterseccionSurCondicional;
+	public Rectangle getPaseSurCondicional() {
+		return paseSurCondicional;
 	}
 
-	public Rectangle getPaseInterseccionEsteCondicional() {
-		return paseInterseccionEsteCondicional;
+	public Rectangle getPaseEsteCondicional() {
+		return paseEsteCondicional;
 	}
 
-	public Rectangle getPaseInterseccionOesteCondicional() {
-		return paseInterseccionOesteCondicional;
+	public Rectangle getPaseOesteCondicional() {
+		return paseOesteCondicional;
 	}
 
 	public boolean isIngresoNorte() {
@@ -472,24 +487,24 @@ public class Pista implements Serializable{
 		this.paseInterseccionOeste = paseInterseccionOeste;
 	}
 
-	public void setPaseInterseccionNorteCondicional(
-			Rectangle paseInterseccionNorteCondicional) {
-		this.paseInterseccionNorteCondicional = paseInterseccionNorteCondicional;
+	public void setPaseNorteCondicional(
+			Rectangle paseNorteCondicional) {
+		this.paseNorteCondicional = paseNorteCondicional;
 	}
 
-	public void setPaseInterseccionSurCondicional(
-			Rectangle paseInterseccionSurCondicional) {
-		this.paseInterseccionSurCondicional = paseInterseccionSurCondicional;
+	public void setPaseSurCondicional(
+			Rectangle paseSurCondicional) {
+		this.paseSurCondicional = paseSurCondicional;
 	}
 
-	public void setPaseInterseccionEsteCondicional(
-			Rectangle paseInterseccionEsteCondicional) {
-		this.paseInterseccionEsteCondicional = paseInterseccionEsteCondicional;
+	public void setPaseEsteCondicional(
+			Rectangle paseEsteCondicional) {
+		this.paseEsteCondicional = paseEsteCondicional;
 	}
 
-	public void setPaseInterseccionOesteCondicional(
-			Rectangle paseInterseccionOesteCondicional) {
-		this.paseInterseccionOesteCondicional = paseInterseccionOesteCondicional;
+	public void setPaseOesteCondicional(
+			Rectangle paseOesteCondicional) {
+		this.paseOesteCondicional = paseOesteCondicional;
 	}
 
 	public void setSensorPase(Rectangle sensorPase) {
@@ -530,6 +545,23 @@ public class Pista implements Serializable{
 
 	public void setVisible(boolean visible) {
 		this.visible = visible;
+	}
+
+	public Rectangle getZonaRampa() {
+		return zonaRampa;
+	}
+
+	public void setZonaRampa(Rectangle zonaRampa) {
+		this.zonaRampa = zonaRampa;
+	}
+
+
+	public boolean isIngresoPuente() {
+		return ingresoPuente;
+	}
+
+	public void setIngresoPuente(boolean ingresoPuente) {
+		this.ingresoPuente = ingresoPuente;
 	}
 
 }

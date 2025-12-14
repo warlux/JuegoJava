@@ -1,7 +1,5 @@
 package com.warlux.view.editorNivel;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 import com.warlux.controller.NivelController;
@@ -14,7 +12,11 @@ import com.warlux.domain.pistas.Nivel;
 public class VistaBusquedaNivel extends javax.swing.JDialog {
 	
 
-    private javax.swing.JButton btnAceptar;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel;
@@ -25,9 +27,9 @@ public class VistaBusquedaNivel extends javax.swing.JDialog {
     private boolean devolver;
     private NivelController nc;
 
-    public VistaBusquedaNivel(java.awt.Frame parent, boolean modal) {
+    public VistaBusquedaNivel(java.awt.Frame parent, boolean modal, NivelController nc) {
         super(parent, modal);
-        nc = new NivelController();
+        this.nc = nc;
         devolver = true;
         initComponents();
     }
@@ -44,7 +46,6 @@ public class VistaBusquedaNivel extends javax.swing.JDialog {
     	return nivel;
     }
     
-    @SuppressWarnings("unchecked")
     private void initComponents() {
 
         btnAceptar = new javax.swing.JButton();
@@ -154,7 +155,7 @@ public class VistaBusquedaNivel extends javax.swing.JDialog {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {
         nivel = nc.buscarNivel(txtNivel.getText());
         if(nivel != null){
-            jPanelMiniatura = new PlantillaNivel(nivel, true);
+            jPanelMiniatura = new PlantillaNivel(nivel, true, nc);
             jScrollPane.setViewportView(jPanelMiniatura);
         } else {
         	jPanelMiniatura = new javax.swing.JPanel();

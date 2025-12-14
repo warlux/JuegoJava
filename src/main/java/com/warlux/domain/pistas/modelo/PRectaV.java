@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 public class PRectaV extends Modelo {
 
 	public PRectaV() {
+		super();
+		nombre = "pRectaV";
 		imagen = new ImageIcon("src/main/resources/modeloPistas/pRectaV.png");
 		Rectangle colision1 = new Rectangle(0, 0, 30, 100);
 		Rectangle colision2 = new Rectangle(70, 0, 30, 100);

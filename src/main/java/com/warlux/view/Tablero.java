@@ -6,18 +6,15 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import com.warlux.controller.BloqueController;
 import com.warlux.controller.Engine;
-import com.warlux.controller.NivelController;
-import com.warlux.controller.PistaController;
 
-// Para poder usar actionPerformed, necesitamos este tipo
 
 public class Tablero extends JPanel{
 	
-	private NivelController controller;
-	private BloqueController bc;
-	private PistaController pc;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Engine engine;
 
 	public Tablero(Engine engine) {
@@ -35,4 +32,20 @@ public class Tablero extends JPanel{
 		engine.paintGame(g);		
 	}
 	
+	public void aumentarTamaño(){
+		Dimension dimension = new Dimension(300,600);
+		setSize(dimension);  
+		setMinimumSize(dimension);  
+		setMaximumSize(dimension);  
+		setPreferredSize(dimension);
+	}
+	
+	public void reducirTamaño(){
+		Dimension dimension = new Dimension(300,300);
+		setSize(dimension);  
+		setMinimumSize(dimension);  
+		setMaximumSize(dimension);  
+		setPreferredSize(dimension);
+		setBackground(Color.WHITE);
+	}
 }

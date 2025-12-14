@@ -9,6 +9,7 @@ public class PInterseccionTE extends Modelo {
 
 	public PInterseccionTE() {
 		super();
+		nombre = "pInterseccionTE";
 		imagen = new ImageIcon(
 				"src/main/resources/modeloPistas/pInterseccionTE.png");
 		Rectangle colision1 = new Rectangle(0, 0, 30, 100);

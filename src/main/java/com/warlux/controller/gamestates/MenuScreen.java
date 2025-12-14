@@ -15,9 +15,9 @@ public class MenuScreen implements Commons {
 	
 	public void draw(Graphics2D g2d) {
 		g2d.setColor(Color.WHITE);
-		g2d.drawString("Este es el menu, presiona:", 30, 100);
-		g2d.drawString("[ENTER] para jugar", 30, 140);
-		g2d.drawString("[E] para editar nivel", 30, 160);
+		g2d.drawString("Este es el menu, presiona:", 30, 250);
+		g2d.drawString("[ENTER] para jugar", 30, 290);
+		g2d.drawString("[E] para editar nivel", 30, 310);
 	}
 	
 }

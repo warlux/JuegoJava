@@ -1,5 +1,6 @@
 package com.warlux.domain.pistas;
 
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Nivel implements Serializable{
 	private ArrayList<BloquePista> bloques;
 	private int startX;
 	private int startY;
+	private Image fondo;
 	
 	public Nivel(String idNivel, int ancho, int alto, Pista[][] posicion){
 		this.idNivel = idNivel;
@@ -131,5 +133,13 @@ public class Nivel implements Serializable{
 			}
 		}
 		return rectangleColisiones;
+	}
+
+	public Image getFondo() {
+		return fondo;
+	}
+
+	public void setFondo(Image fondo) {
+		this.fondo = fondo;
 	}
 }

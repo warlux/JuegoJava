@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public abstract class Modelo implements Serializable{
-	
+
+	protected String nombre;
 	protected ImageIcon imagen;
 	protected ArrayList<Rectangle> colisiones;
 	protected Rectangle separadorNorte;
@@ -23,23 +24,49 @@ public abstract class Modelo implements Serializable{
 	protected Rectangle paseInterseccionSur;
 	protected Rectangle paseInterseccionEste;
 	protected Rectangle paseInterseccionOeste;
-	protected Rectangle paseInterseccionNorteCondicional;
-	protected Rectangle paseInterseccionSurCondicional;
-	protected Rectangle paseInterseccionEsteCondicional;
-	protected Rectangle paseInterseccionOesteCondicional;
+	protected Rectangle paseNorteCondicional;
+	protected Rectangle paseSurCondicional;
+	protected Rectangle paseEsteCondicional;
+	protected Rectangle paseOesteCondicional;
 	protected Rectangle zonaMedio;
+	protected Rectangle zonaRampa;
 	protected boolean interseccion;
+	protected boolean rampa;
+	protected boolean puente;
+	protected boolean puenteRoto;
+	protected String direccion;
 	
 	
 	public Modelo(){
 		interseccion = false;
+		rampa = false;
+		puente = false;
 		zonaMedio = new Rectangle(30, 30, 40, 40);
 	}
 	
-
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
 	public boolean isInterseccion() {
 		return interseccion;
 	}
+
+	public boolean isRampa() {
+		return rampa;
+	}
+
+
+	public boolean isPuente() {
+		return puente;
+	}
+
+
+	public String getDireccion() {
+		return direccion;
+	}
+
 
 	public Image getImagen() {
 		return imagen.getImage();
@@ -101,28 +128,43 @@ public abstract class Modelo implements Serializable{
 	}
 
 
-	public Rectangle getSensorPase() {
+	public Rectangle getZonaMedio() {
 		return zonaMedio;
 	}
 
 
-	public Rectangle getPaseInterseccionNorteCondicional() {
-		return paseInterseccionNorteCondicional;
+	public Rectangle getZonaRampa() {
+		return zonaRampa;
 	}
 
 
-	public Rectangle getPaseInterseccionSurCondicional() {
-		return paseInterseccionSurCondicional;
+	public Rectangle getPaseNorteCondicional() {
+		return paseNorteCondicional;
 	}
 
 
-	public Rectangle getPaseInterseccionEsteCondicional() {
-		return paseInterseccionEsteCondicional;
+	public Rectangle getPaseSurCondicional() {
+		return paseSurCondicional;
 	}
 
 
-	public Rectangle getPaseInterseccionOesteCondicional() {
-		return paseInterseccionOesteCondicional;
+	public Rectangle getPaseEsteCondicional() {
+		return paseEsteCondicional;
+	}
+
+
+	public Rectangle getPaseOesteCondicional() {
+		return paseOesteCondicional;
+	}
+
+
+	public boolean isPuenteRoto() {
+		return puenteRoto;
+	}
+
+
+	public void setPuenteRoto(boolean puenteRoto) {
+		this.puenteRoto = puenteRoto;
 	}
 
 
@@ -130,7 +172,7 @@ public abstract class Modelo implements Serializable{
 	
 	public abstract void cambiarImagenDesactivada();
 	
-	public void cambiarImagenEntradaInterseccion(){
+	public void cambiarImagenCondicional(){
 		cambiarImagenActivada();
 	}
 }

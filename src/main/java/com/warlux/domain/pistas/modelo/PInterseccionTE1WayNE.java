@@ -12,6 +12,7 @@ public class PInterseccionTE1WayNE extends Modelo {
 	
 	public PInterseccionTE1WayNE() {
 		super();
+		nombre = "pInterseccionTE1WayNE";
 		imagen = new ImageIcon(
 				"src/main/resources/modeloPistas/pInterseccionTE1WayNE.png");
 		Rectangle colision1 = new Rectangle(0, 0, 30, 100);
@@ -28,7 +29,7 @@ public class PInterseccionTE1WayNE extends Modelo {
 		separadorEste = new Rectangle(98, 30, 2, 40);
 		paseEste = new Rectangle(72, 30, 25, 40);
 		paseInterseccionNorte = new Rectangle(30, 27, 40, 3);
-		paseInterseccionSurCondicional = new Rectangle(30, 70, 40, 3);
+		paseSurCondicional = new Rectangle(30, 70, 40, 3);
 		interseccion = true;
 	}
 
@@ -43,7 +44,7 @@ public class PInterseccionTE1WayNE extends Modelo {
 	}
 	
 	@Override
-	public void cambiarImagenEntradaInterseccion(){
+	public void cambiarImagenCondicional(){
 		imagen = new ImageIcon("src/main/resources/modeloPistasFocus/vpInterseccionTE1WayNE2.png");
 	}
 }

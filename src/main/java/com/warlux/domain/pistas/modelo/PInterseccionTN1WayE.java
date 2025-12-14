@@ -9,6 +9,7 @@ public class PInterseccionTN1WayE extends Modelo {
 
 	public PInterseccionTN1WayE() {
 		super();
+		nombre = "pInterseccionTN1WayE";
 		imagen = new ImageIcon(
 				"src/main/resources/modeloPistas/pInterseccionTN1WayE.png");
 		Rectangle colision1 = new Rectangle(0, 0, 30, 30);
@@ -39,7 +40,7 @@ public class PInterseccionTN1WayE extends Modelo {
 	}
 	
 	@Override
-	public void cambiarImagenEntradaInterseccion(){
+	public void cambiarImagenCondicional(){
 		imagen = new ImageIcon("src/main/resources/modeloPistasFocus/vpInterseccionTN1WayE2.png");
 	}
 

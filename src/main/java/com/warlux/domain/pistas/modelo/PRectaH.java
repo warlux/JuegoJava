@@ -9,6 +9,7 @@ public class PRectaH extends Modelo {
 
 	public PRectaH() {
 		super();
+		nombre = "pRectaH";
 		imagen = new ImageIcon("src/main/resources/modeloPistas/pRectaH.png");
 		Rectangle colision1 = new Rectangle(0, 0, 100, 30);
 		Rectangle colision2 = new Rectangle(0, 70, 100, 30);

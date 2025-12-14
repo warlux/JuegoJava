@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 public class PInterseccionTE1WayES extends Modelo {
 
 	public PInterseccionTE1WayES() {
+		super();
+		nombre = "pInterseccionTE1WayES";
 		imagen = new ImageIcon(
 				"src/main/resources/modeloPistas/pInterseccionTE1WayES.png");
 		Rectangle colision1 = new Rectangle(0, 0, 30, 100);
@@ -24,7 +26,7 @@ public class PInterseccionTE1WayES extends Modelo {
 		separadorEste = new Rectangle(98, 30, 2, 40);
 		paseEste = new Rectangle(72, 30, 25, 40);
 		paseInterseccionEste = new Rectangle(70, 30, 3, 40);
-		paseInterseccionNorteCondicional = new Rectangle(30, 27, 40, 3);
+		paseNorteCondicional = new Rectangle(30, 27, 40, 3);
 		interseccion = true;
 	}
 
@@ -39,7 +41,7 @@ public class PInterseccionTE1WayES extends Modelo {
 	}
 	
 	@Override
-	public void cambiarImagenEntradaInterseccion(){
+	public void cambiarImagenCondicional(){
 		imagen = new ImageIcon("src/main/resources/modeloPistasFocus/vpInterseccionTE1WayES2.png");
 	}
 

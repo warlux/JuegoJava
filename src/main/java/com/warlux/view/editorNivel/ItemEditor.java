@@ -6,9 +6,16 @@ import javax.swing.TransferHandler;
 @SuppressWarnings("serial")
 public class ItemEditor extends javax.swing.JLabel{
 
-	public ItemEditor(String nombreIcono){
+	public ItemEditor(String nombreIcono, String tipoElemento){
 		super();
-		this.setIcon(new javax.swing.ImageIcon("src/main/resources/modeloPistas/"+nombreIcono+".png"));
+		switch (tipoElemento) {
+		case "pista":
+			this.setIcon(new javax.swing.ImageIcon("src/main/resources/modeloPistas/"+nombreIcono+".png"));
+			break;
+		case "item":
+			this.setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/"+nombreIcono+".png"));
+			break;
+		}		
 		this.setName(nombreIcono);
 		this.setTransferHandler(new TransferHandler("name"));
 		this.setDropTarget(null);

@@ -18,8 +18,8 @@ public class IntroScreen implements Commons{
 	public void draw(Graphics2D g2d) {
 		tablero.setBackground(Color.BLACK);
 		Toolkit t = Toolkit.getDefaultToolkit ();
-        Image imagen = t.getImage ("src/main/resources/modeloObjetos/logo.png");
-		g2d.drawImage(imagen,0,0,tablero);
+        Image imagen = t.getImage ("src/main/resources/modeloObjetos/logo.gif");
+		g2d.drawImage(imagen,0,150,tablero);
 	}
 	
 }
