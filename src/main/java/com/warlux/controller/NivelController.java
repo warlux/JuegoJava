@@ -110,7 +110,7 @@ public class NivelController {
         niveles = new ArrayList<>();
         for (NivelModelo nivelModelo : nivelesModelo) {
             Pista[][] posicion = new Pista[nivelModelo.getAncho()][nivelModelo.getAlto()];
-            Nivel nivel = new Nivel(nivelModelo.getIdNivel(), nivelModelo.getAncho(), nivelModelo.getAncho(), posicion);
+            Nivel nivel = new Nivel(nivelModelo.getIdNivel(), nivelModelo.getAncho(), nivelModelo.getAlto(), posicion);
             nivel.setStartX(nivelModelo.getStartX());
             nivel.setStartY(nivelModelo.getStartY());
             
