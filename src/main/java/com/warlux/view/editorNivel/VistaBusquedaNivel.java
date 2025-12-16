@@ -57,7 +57,7 @@ public class VistaBusquedaNivel extends javax.swing.JDialog {
         jPanelMiniatura = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Búsqueda de Temas");
+        setTitle("BÃºsqueda de Temas");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);

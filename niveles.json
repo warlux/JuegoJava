@@ -1,0 +1,2110 @@
+{
+  "niveles": [
+    {
+      "pistas": [
+        {
+          "x": 100,
+          "y": 100,
+          "item": "tnt",
+          "bloque": "1",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 100,
+          "y": 200,
+          "item": "sierra",
+          "bloque": "1",
+          "modelo": "pInterseccionTE"
+        },
+        {
+          "x": 100,
+          "y": 300,
+          "item": "coraza",
+          "bloque": "1",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 100,
+          "y": 400,
+          "item": "salto",
+          "bloque": "1",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 100,
+          "y": 500,
+          "item": "salto",
+          "bloque": "1",
+          "modelo": "pInterseccionTE"
+        },
+        {
+          "x": 100,
+          "y": 600,
+          "item": "tnt",
+          "bloque": "9",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 200,
+          "y": 100,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pSaltoE"
+        },
+        {
+          "x": 200,
+          "y": 200,
+          "item": "muro",
+          "bloque": "1",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 200,
+          "y": 400,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pSaltoO"
+        },
+        {
+          "x": 200,
+          "y": 500,
+          "item": "salto",
+          "bloque": "1",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 200,
+          "y": 600,
+          "item": "llanta",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 300,
+          "y": 100,
+          "item": "sierra",
+          "bloque": "8",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 300,
+          "y": 200,
+          "item": "puenteH",
+          "bloque": "2",
+          "modelo": "pPuenteH"
+        },
+        {
+          "x": 300,
+          "y": 300,
+          "item": "sierra",
+          "bloque": "9",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 300,
+          "y": 400,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pInterseccionTN1WayEO"
+        },
+        {
+          "x": 300,
+          "y": 500,
+          "item": "salto",
+          "bloque": "1",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 300,
+          "y": 600,
+          "item": "salto",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 400,
+          "y": 100,
+          "item": "",
+          "bloque": "8",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 400,
+          "y": 200,
+          "item": "sierra",
+          "bloque": "4",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 400,
+          "y": 400,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 400,
+          "y": 500,
+          "item": "muroGrande",
+          "bloque": "1",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 400,
+          "y": 600,
+          "item": "sierra",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 500,
+          "y": 100,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pInterseccionTS1WayES"
+        },
+        {
+          "x": 500,
+          "y": 200,
+          "item": "puenteV",
+          "bloque": "3",
+          "modelo": "pPuenteV"
+        },
+        {
+          "x": 500,
+          "y": 300,
+          "item": "",
+          "bloque": "6",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 400,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pInterseccionTN1WayN"
+        },
+        {
+          "x": 500,
+          "y": 500,
+          "item": "coraza",
+          "bloque": "1",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 500,
+          "y": 600,
+          "item": "tnt",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 600,
+          "y": 100,
+          "item": "llaveN",
+          "bloque": "5",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 600,
+          "y": 200,
+          "item": "",
+          "bloque": "5",
+          "modelo": "pInterseccionTN"
+        },
+        {
+          "x": 600,
+          "y": 300,
+          "item": "abismo",
+          "bloque": "0",
+          "modelo": "pAbismo"
+        },
+        {
+          "x": 600,
+          "y": 400,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pSaltoN"
+        },
+        {
+          "x": 600,
+          "y": 500,
+          "item": "muroGrande",
+          "bloque": "1",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 600,
+          "y": 600,
+          "item": "peaje",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 700,
+          "y": 100,
+          "item": "tunelMeta",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 700,
+          "y": 200,
+          "item": "tunel",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 700,
+          "y": 300,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pSaltoO"
+        },
+        {
+          "x": 700,
+          "y": 400,
+          "item": "abismo",
+          "bloque": "9",
+          "modelo": "pAgua"
+        },
+        {
+          "x": 700,
+          "y": 500,
+          "item": "abismo",
+          "bloque": "9",
+          "modelo": "pAgua"
+        },
+        {
+          "x": 700,
+          "y": 600,
+          "item": "tnt",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 800,
+          "y": 100,
+          "item": "pasarNivel",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 800,
+          "y": 200,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 800,
+          "y": 300,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 800,
+          "y": 400,
+          "item": "abismo",
+          "bloque": "9",
+          "modelo": "pAgua"
+        },
+        {
+          "x": 800,
+          "y": 500,
+          "item": "abismo",
+          "bloque": "9",
+          "modelo": "pAgua"
+        },
+        {
+          "x": 800,
+          "y": 600,
+          "item": "tnt",
+          "bloque": "9",
+          "modelo": "pInterseccionTN"
+        },
+        {
+          "x": 900,
+          "y": 100,
+          "item": "tunelSalida",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 900,
+          "y": 200,
+          "item": "tunelSalida",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 900,
+          "y": 300,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 900,
+          "y": 400,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 900,
+          "y": 500,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 900,
+          "y": 600,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1000,
+          "y": 100,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1000,
+          "y": 200,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pCurvaNO"
+        }
+      ],
+      "ancho": 20,
+      "idNivel": "prueba",
+      "startY": 450,
+      "startX": 450,
+      "alto": 40
+    },
+    {
+      "pistas": [
+        {
+          "x": 300,
+          "y": 2200,
+          "item": "",
+          "bloque": "21",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 300,
+          "y": 2300,
+          "item": "",
+          "bloque": "21",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 300,
+          "y": 2400,
+          "item": "",
+          "bloque": "21",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 400,
+          "y": 1100,
+          "item": "",
+          "bloque": "28",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 400,
+          "y": 1200,
+          "item": "muroGrande",
+          "bloque": "28",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 1300,
+          "item": "",
+          "bloque": "28",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 1400,
+          "item": "",
+          "bloque": "26",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 400,
+          "y": 2200,
+          "item": "",
+          "bloque": "21",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 400,
+          "y": 2400,
+          "item": "salto",
+          "bloque": "21",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 400,
+          "y": 2500,
+          "item": "",
+          "bloque": "21",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 2600,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 400,
+          "y": 3100,
+          "item": "",
+          "bloque": "2",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 400,
+          "y": 3200,
+          "item": "",
+          "bloque": "2",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 3300,
+          "item": "",
+          "bloque": "2",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 3400,
+          "item": "muro",
+          "bloque": "2",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 3500,
+          "item": "",
+          "bloque": "2",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 3600,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 500,
+          "y": 1100,
+          "item": "",
+          "bloque": "28",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 500,
+          "y": 1400,
+          "item": "",
+          "bloque": "26",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 500,
+          "y": 1500,
+          "item": "",
+          "bloque": "26",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 1600,
+          "item": "diamante",
+          "bloque": "26",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 500,
+          "y": 1800,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 500,
+          "y": 1900,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 2000,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 2100,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 2200,
+          "item": "",
+          "bloque": "22",
+          "modelo": "pInterseccionTN1WayO"
+        },
+        {
+          "x": 500,
+          "y": 2600,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 500,
+          "y": 2700,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 2800,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pInterseccionTE1WayEN"
+        },
+        {
+          "x": 500,
+          "y": 2900,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 3000,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pInterseccionTE1WayEN"
+        },
+        {
+          "x": 500,
+          "y": 3100,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pInterseccionTO1WayON"
+        },
+        {
+          "x": 500,
+          "y": 3200,
+          "item": "",
+          "bloque": "4",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 500,
+          "y": 3600,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 500,
+          "y": 3700,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 500,
+          "y": 3800,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pSaltoN"
+        },
+        {
+          "x": 600,
+          "y": 1000,
+          "item": "",
+          "bloque": "28",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 600,
+          "y": 1100,
+          "item": "",
+          "bloque": "28",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 600,
+          "y": 1200,
+          "item": "",
+          "bloque": "28",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 600,
+          "y": 1300,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 600,
+          "y": 1400,
+          "item": "",
+          "bloque": "26",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 600,
+          "y": 1600,
+          "item": "",
+          "bloque": "26",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 600,
+          "y": 1700,
+          "item": "",
+          "bloque": "26",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 1800,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 600,
+          "y": 1900,
+          "item": "",
+          "bloque": "25",
+          "modelo": "pSaltoN"
+        },
+        {
+          "x": 600,
+          "y": 2000,
+          "item": "",
+          "bloque": "25",
+          "modelo": "pInterseccionTE1WayS"
+        },
+        {
+          "x": 600,
+          "y": 2100,
+          "item": "",
+          "bloque": "24",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 2200,
+          "item": "",
+          "bloque": "22",
+          "modelo": "pCruce"
+        },
+        {
+          "x": 600,
+          "y": 2300,
+          "item": "",
+          "bloque": "22",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 2400,
+          "item": "",
+          "bloque": "22",
+          "modelo": "pInterseccionTE1WayEN"
+        },
+        {
+          "x": 600,
+          "y": 2500,
+          "item": "",
+          "bloque": "22",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 2600,
+          "item": "",
+          "bloque": "20",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 600,
+          "y": 2800,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 600,
+          "y": 3000,
+          "item": "",
+          "bloque": "17",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 600,
+          "y": 3200,
+          "item": "",
+          "bloque": "4",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 600,
+          "y": 3300,
+          "item": "",
+          "bloque": "4",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 3400,
+          "item": "",
+          "bloque": "3",
+          "modelo": "pInterseccionTE"
+        },
+        {
+          "x": 600,
+          "y": 3500,
+          "item": "",
+          "bloque": "3",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 3600,
+          "item": "",
+          "bloque": "1",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 700,
+          "y": 1000,
+          "item": "",
+          "bloque": "30",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 700,
+          "y": 1200,
+          "item": "clavos",
+          "bloque": "29",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 700,
+          "y": 1300,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 700,
+          "y": 1500,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 700,
+          "y": 1600,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 700,
+          "y": 1700,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 700,
+          "y": 1800,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pInterseccionTN1WayNE"
+        },
+        {
+          "x": 700,
+          "y": 2000,
+          "item": "",
+          "bloque": "25",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 700,
+          "y": 2100,
+          "item": "bomba",
+          "bloque": "25",
+          "modelo": "pInterseccionTE1WayEN"
+        },
+        {
+          "x": 700,
+          "y": 2200,
+          "item": "",
+          "bloque": "22",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 700,
+          "y": 2400,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 700,
+          "y": 2800,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pInterseccionTS1WaySO"
+        },
+        {
+          "x": 700,
+          "y": 2900,
+          "item": "",
+          "bloque": "18",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 700,
+          "y": 3000,
+          "item": "abismo",
+          "bloque": "19",
+          "modelo": "pAbismo"
+        },
+        {
+          "x": 700,
+          "y": 3100,
+          "item": "",
+          "bloque": "18",
+          "modelo": "pSaltoN"
+        },
+        {
+          "x": 700,
+          "y": 3200,
+          "item": "",
+          "bloque": "4",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 700,
+          "y": 3400,
+          "item": "",
+          "bloque": "5",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 800,
+          "y": 1000,
+          "item": "",
+          "bloque": "30",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 800,
+          "y": 1100,
+          "item": "",
+          "bloque": "30",
+          "modelo": "pInterseccionTE1WaySE"
+        },
+        {
+          "x": 800,
+          "y": 1200,
+          "item": "",
+          "bloque": "29",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 800,
+          "y": 1300,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 800,
+          "y": 1400,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 800,
+          "y": 1500,
+          "item": "",
+          "bloque": "27",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 800,
+          "y": 1800,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 800,
+          "y": 2100,
+          "item": "",
+          "bloque": "38",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 800,
+          "y": 2400,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 800,
+          "y": 2800,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 800,
+          "y": 3000,
+          "item": "",
+          "bloque": "17",
+          "modelo": "pSaltoO"
+        },
+        {
+          "x": 800,
+          "y": 3300,
+          "item": "",
+          "bloque": "5",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 800,
+          "y": 3400,
+          "item": "",
+          "bloque": "5",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 800,
+          "y": 3500,
+          "item": "",
+          "bloque": "5",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 900,
+          "y": 1100,
+          "item": "",
+          "bloque": "30",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 900,
+          "y": 1700,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 900,
+          "y": 1800,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 900,
+          "y": 1900,
+          "item": "",
+          "bloque": "23",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 900,
+          "y": 2100,
+          "item": "",
+          "bloque": "38",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 900,
+          "y": 2400,
+          "item": "llaveS1",
+          "bloque": "39",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 900,
+          "y": 2800,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 900,
+          "y": 3000,
+          "item": "",
+          "bloque": "17",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 900,
+          "y": 3300,
+          "item": "bomba",
+          "bloque": "6",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 900,
+          "y": 3500,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1000,
+          "y": 1000,
+          "item": "",
+          "bloque": "30",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 1000,
+          "y": 1100,
+          "item": "",
+          "bloque": "30",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 1000,
+          "y": 1200,
+          "item": "",
+          "bloque": "30",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1000,
+          "y": 1700,
+          "item": "",
+          "bloque": "33",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1000,
+          "y": 1900,
+          "item": "",
+          "bloque": "34",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1000,
+          "y": 2100,
+          "item": "",
+          "bloque": "38",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1000,
+          "y": 2400,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1000,
+          "y": 2800,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1000,
+          "y": 3000,
+          "item": "",
+          "bloque": "17",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1000,
+          "y": 3300,
+          "item": "",
+          "bloque": "6",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1000,
+          "y": 3400,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pInterseccionTE1WayNE"
+        },
+        {
+          "x": 1000,
+          "y": 3500,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1100,
+          "y": 1000,
+          "item": "bomba",
+          "bloque": "32",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1100,
+          "y": 1200,
+          "item": "",
+          "bloque": "31",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1100,
+          "y": 1400,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 1100,
+          "y": 1500,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1100,
+          "y": 1600,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1100,
+          "y": 1700,
+          "item": "",
+          "bloque": "33",
+          "modelo": "pInterseccionTN1WayNE"
+        },
+        {
+          "x": 1100,
+          "y": 1900,
+          "item": "llaveN",
+          "bloque": "34",
+          "modelo": "pInterseccionTS1WaySE"
+        },
+        {
+          "x": 1100,
+          "y": 2000,
+          "item": "",
+          "bloque": "37",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1100,
+          "y": 2100,
+          "item": "",
+          "bloque": "38",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1100,
+          "y": 2400,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1100,
+          "y": 2800,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1100,
+          "y": 2900,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1100,
+          "y": 3000,
+          "item": "",
+          "bloque": "17",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1100,
+          "y": 3400,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 1000,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1200,
+          "y": 1100,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pInterseccionTE1WaySE"
+        },
+        {
+          "x": 1200,
+          "y": 1200,
+          "item": "",
+          "bloque": "31",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1200,
+          "y": 1400,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 1700,
+          "item": "",
+          "bloque": "33",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 1900,
+          "item": "",
+          "bloque": "34",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 2000,
+          "item": "",
+          "bloque": "37",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 2100,
+          "item": "",
+          "bloque": "38",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 2400,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 2900,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 3000,
+          "item": "",
+          "bloque": "17",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1200,
+          "y": 3300,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 1200,
+          "y": 3400,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 1200,
+          "y": 3500,
+          "item": "",
+          "bloque": "7",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1300,
+          "y": 1100,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1300,
+          "y": 1200,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1300,
+          "y": 1300,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1300,
+          "y": 1400,
+          "item": "",
+          "bloque": "32",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1300,
+          "y": 1700,
+          "item": "",
+          "bloque": "33",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1300,
+          "y": 1800,
+          "item": "",
+          "bloque": "34",
+          "modelo": "pInterseccionTE1WayN"
+        },
+        {
+          "x": 1300,
+          "y": 1900,
+          "item": "",
+          "bloque": "34",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1300,
+          "y": 2000,
+          "item": "",
+          "bloque": "37",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1300,
+          "y": 2100,
+          "item": "",
+          "bloque": "38",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1300,
+          "y": 2300,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 1300,
+          "y": 2400,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1300,
+          "y": 2900,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1300,
+          "y": 3000,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 1300,
+          "y": 3100,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1300,
+          "y": 3200,
+          "item": "abismo",
+          "bloque": "0",
+          "modelo": "pAbismo"
+        },
+        {
+          "x": 1300,
+          "y": 3300,
+          "item": "bomba",
+          "bloque": "8",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1300,
+          "y": 3500,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1400,
+          "y": 1800,
+          "item": "",
+          "bloque": "34",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1400,
+          "y": 2000,
+          "item": "",
+          "bloque": "37",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1400,
+          "y": 2100,
+          "item": "",
+          "bloque": "38",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1400,
+          "y": 2300,
+          "item": "",
+          "bloque": "39",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1400,
+          "y": 3100,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1400,
+          "y": 3300,
+          "item": "",
+          "bloque": "8",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1400,
+          "y": 3400,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pInterseccionTE1WayNE"
+        },
+        {
+          "x": 1400,
+          "y": 3500,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1500,
+          "y": 1800,
+          "item": "",
+          "bloque": "40",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 1500,
+          "y": 1900,
+          "item": "",
+          "bloque": "40",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 2000,
+          "item": "",
+          "bloque": "35",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 1500,
+          "y": 2100,
+          "item": "",
+          "bloque": "35",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 1500,
+          "y": 2200,
+          "item": "",
+          "bloque": "35",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 2300,
+          "item": "",
+          "bloque": "35",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 1500,
+          "y": 2400,
+          "item": "",
+          "bloque": "40",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 2500,
+          "item": "",
+          "bloque": "40",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 2600,
+          "item": "",
+          "bloque": "40",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 2700,
+          "item": "",
+          "bloque": "40",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 2800,
+          "item": "",
+          "bloque": "40",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 2900,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pInterseccionTE1WayNS"
+        },
+        {
+          "x": 1500,
+          "y": 3000,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1500,
+          "y": 3100,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pInterseccionTO1WayS"
+        },
+        {
+          "x": 1500,
+          "y": 3200,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1500,
+          "y": 3300,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 1500,
+          "y": 3400,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pCruce"
+        },
+        {
+          "x": 1500,
+          "y": 3500,
+          "item": "",
+          "bloque": "9",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1600,
+          "y": 1800,
+          "item": "tunelMeta",
+          "bloque": "36",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 1600,
+          "y": 2900,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1600,
+          "y": 3200,
+          "item": "muro",
+          "bloque": "16",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1600,
+          "y": 3300,
+          "item": "bomba",
+          "bloque": "10",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1600,
+          "y": 3400,
+          "item": "moneda",
+          "bloque": "12",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1600,
+          "y": 3500,
+          "item": "",
+          "bloque": "11",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1700,
+          "y": 1800,
+          "item": "pasarNivel",
+          "bloque": "36",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 1700,
+          "y": 2900,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1700,
+          "y": 3000,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 1700,
+          "y": 3200,
+          "item": "",
+          "bloque": "16",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 1700,
+          "y": 3300,
+          "item": "",
+          "bloque": "10",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1700,
+          "y": 3400,
+          "item": "puenteH",
+          "bloque": "13",
+          "modelo": "pPuenteH"
+        },
+        {
+          "x": 1700,
+          "y": 3500,
+          "item": "",
+          "bloque": "11",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1800,
+          "y": 1800,
+          "item": "tunelSalida",
+          "bloque": "36",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 1800,
+          "y": 3000,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 1800,
+          "y": 3100,
+          "item": "",
+          "bloque": "15",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1800,
+          "y": 3200,
+          "item": "",
+          "bloque": "14",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 1800,
+          "y": 3300,
+          "item": "",
+          "bloque": "14",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 1800,
+          "y": 3400,
+          "item": "",
+          "bloque": "14",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 1900,
+          "y": 1800,
+          "item": "tunelSalida",
+          "bloque": "36",
+          "modelo": "pRectaTunel"
+        }
+      ],
+      "ancho": 21,
+      "idNivel": "n1",
+      "startY": 3740,
+      "startX": 540,
+      "alto": 40
+    },
+    {
+      "pistas": [
+        {
+          "x": 100,
+          "y": 300,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 100,
+          "y": 400,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 100,
+          "y": 500,
+          "item": "salto",
+          "bloque": "0",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 200,
+          "y": 200,
+          "item": "diamante",
+          "bloque": "0",
+          "modelo": "pCurvaSE"
+        },
+        {
+          "x": 200,
+          "y": 300,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pInterseccionTO"
+        },
+        {
+          "x": 200,
+          "y": 400,
+          "item": "salto",
+          "bloque": "0",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 200,
+          "y": 500,
+          "item": "coraza",
+          "bloque": "0",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 200,
+          "y": 600,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 200,
+          "y": 700,
+          "item": "coraza",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 200,
+          "y": 800,
+          "item": "coraza",
+          "bloque": "0",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 300,
+          "y": 200,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 300,
+          "y": 400,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 300,
+          "y": 500,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 300,
+          "y": 600,
+          "item": "coraza",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 300,
+          "y": 700,
+          "item": "moneda",
+          "bloque": "0",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 300,
+          "y": 800,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 400,
+          "y": 200,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 400,
+          "y": 300,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 400,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pCruce"
+        },
+        {
+          "x": 400,
+          "y": 500,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 600,
+          "item": "sierra",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 400,
+          "y": 700,
+          "item": "salto",
+          "bloque": "0",
+          "modelo": "pInterseccionTN"
+        },
+        {
+          "x": 400,
+          "y": 800,
+          "item": "jefe1",
+          "bloque": "0",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 400,
+          "y": 900,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pCurvaNE"
+        },
+        {
+          "x": 500,
+          "y": 200,
+          "item": "tunelMeta",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 500,
+          "y": 400,
+          "item": "peaje",
+          "bloque": "0",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 500,
+          "y": 700,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 500,
+          "y": 900,
+          "item": "diamante",
+          "bloque": "0",
+          "modelo": "pRectaH"
+        },
+        {
+          "x": 600,
+          "y": 200,
+          "item": "pasarNivel",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 600,
+          "y": 400,
+          "item": "coraza",
+          "bloque": "0",
+          "modelo": "pInterseccionTS"
+        },
+        {
+          "x": 600,
+          "y": 500,
+          "item": "tnt",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 600,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 700,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pCruce"
+        },
+        {
+          "x": 600,
+          "y": 800,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 600,
+          "y": 900,
+          "item": "moneda",
+          "bloque": "0",
+          "modelo": "pCurvaNO"
+        },
+        {
+          "x": 700,
+          "y": 200,
+          "item": "tunelSalida",
+          "bloque": "0",
+          "modelo": "pRectaTunel"
+        },
+        {
+          "x": 700,
+          "y": 400,
+          "item": "jefe1",
+          "bloque": "0",
+          "modelo": "pCurvaSO"
+        },
+        {
+          "x": 700,
+          "y": 500,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 700,
+          "y": 600,
+          "item": "",
+          "bloque": "0",
+          "modelo": "pRectaV"
+        },
+        {
+          "x": 700,
+          "y": 700,
+          "item": "jefe1",
+          "bloque": "0",
+          "modelo": "pCurvaNO"
+        }
+      ],
+      "ancho": 10,
+      "idNivel": "n0",
+      "startY": 450,
+      "startX": 450,
+      "alto": 10
+    }
+  ]
+}

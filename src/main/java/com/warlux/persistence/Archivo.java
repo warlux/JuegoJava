@@ -1,72 +1,59 @@
 package com.warlux.persistence;
 
-import java.io.*;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.warlux.domain.editornivel.NivelModelo;
+import com.warlux.domain.editornivel.NivelModeloContainer;
 
-public class Archivo <A>{
-    /**file sirve para encapsular la interaccion de nuestros programas con el sistema
-     * de archivos. Mediante la clase File no nos limitamos a leer el contenido de un
-     * archivo, ademas podemos obtener toda la informacion del archivo nombre,fecha etc
-     **/
-    private File archivo;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
-    /**La clase InputStream nos sirve para leer datos del archivo*/
-    private ObjectInputStream input;
+public class Archivo {
+    private final File archivo;
+    private final ObjectMapper mapper = new ObjectMapper();
 
-    /** La clase OutputStream es un objeto que nos permite escribir en el archivo*/
-    private ObjectOutputStream output;
-
-    /**construye un archivo con el objeto file en la que se encapsula el archivo con
-     * todas las propiedades nombre, fecha, etc*/
     public Archivo(File archivo) {
-        this.archivo=archivo;
+        this.archivo = archivo;
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
-    private void escribir(A obj) throws IOException{
-        output = new ObjectOutputStream(new FileOutputStream(archivo));
-        if (output != null)
-        output.writeObject(obj);
-        if ( output != null)
-        output.close();
-    }
-
-    private A leer() throws IOException, ClassNotFoundException{
-        input = new ObjectInputStream(new FileInputStream(archivo));
-        A obj = null;
-        if( input != null){
-            obj = (A) input.readObject();
-        }
-        if ( input != null)
-            input.close();
-        return obj;
-    }
-
-    public boolean salvar(A objetos){
-        try{
-            if(!archivo.exists())
-                archivo.createNewFile();
-            escribir(objetos);
+    /**
+     * Guarda una lista de NivelModelo en formato JSON en el archivo
+     * @param niveles Lista de niveles a guardar
+     * @return true si la operación fue exitosa, false en caso contrario
+     */
+    public boolean salvar(List<NivelModelo> niveles) {
+        try {
+            if (!archivo.exists()) {
+                Files.createDirectories(archivo.getParentFile().toPath());
+            }
+            NivelModeloContainer nivelModeloContainer = new NivelModeloContainer();
+            nivelModeloContainer.setNiveles(niveles);
+            mapper.writeValue(archivo, nivelModeloContainer);
             return true;
-        }
-        catch(java.io.IOException excepcion){
-        	System.out.println(excepcion.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error al guardar JSON: " + e.getMessage());
             return false;
         }
     }
 
-    public A recuperar(){
-    	A aux=null;
-        try{
-            aux=leer();
-            return aux;
-        }
-        catch(java.io.EOFException eof){
-            return aux;
-        }
-        catch(java.io.IOException ex){
-            return aux;
-        }
-        catch (ClassNotFoundException f) {
-            return aux;
+    /**
+     * Recupera la lista de NivelModelo desde el archivo JSON
+     * @return Lista de niveles, o lista vacía si no hay datos o hay un error
+     */
+    public List<NivelModelo> recuperar() {
+        try {
+            if (!archivo.exists() || archivo.length() == 0) {
+                return new ArrayList<>();
+            }
+            return mapper.readValue(archivo, new TypeReference<NivelModeloContainer>() {}).getNiveles();
+        } catch (IOException e) {
+            System.err.println("Error al leer JSON: " + e.getMessage());
+            return new ArrayList<>();
         }
     }
 }

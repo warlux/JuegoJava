@@ -1,27 +1,32 @@
 package com.warlux.persistence;
 
+import com.warlux.domain.editornivel.NivelModelo;
+
 import java.io.File;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
-public class RepositorioNivelHM implements Serializable{
+public class RepositorioNivelHM implements Serializable {
 
-    private Archivo<ArrayList<HashMap<String,Serializable>>> archivo;
+    private final Archivo archivo;
 
     public RepositorioNivelHM(File file) {
-        archivo = new Archivo<>(file);
+        this.archivo = new Archivo(file);
     }
 
-    public void salvar(ArrayList<HashMap<String,Serializable>> nivel){
-        archivo.salvar(nivel);
+    /**
+     * Guarda una lista de niveles en el archivo
+     * @param niveles Lista de niveles a guardar
+     */
+    public void salvar(List<NivelModelo> niveles) {
+        archivo.salvar(niveles);
     }
 
-    public ArrayList<HashMap<String,Serializable>> recuperar(){
-    	ArrayList<HashMap<String,Serializable>> niveles = (ArrayList<HashMap<String,Serializable>>)archivo.recuperar();
-        if (niveles == null) {
-            niveles = new ArrayList<>();
-        }        
-        return niveles;
+    /**
+     * Recupera la lista de niveles desde el archivo
+     * @return Lista de niveles, o lista vacía si no hay datos
+     */
+    public List<NivelModelo> recuperar() {
+        return archivo.recuperar();
     }
 }

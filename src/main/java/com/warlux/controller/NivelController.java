@@ -1,5 +1,6 @@
 package com.warlux.controller;
 
+import com.warlux.domain.editornivel.NivelModelo;
 import com.warlux.domain.objetos.items.IAbismo;
 import com.warlux.domain.objetos.items.IBomba;
 import com.warlux.domain.objetos.items.IClavos;
@@ -86,48 +87,44 @@ import com.warlux.domain.pistas.modelo.PSaltoO;
 import com.warlux.domain.pistas.modelo.PSaltoS;
 import com.warlux.persistence.RepositorioNivelHM;
 import java.io.File;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 public class NivelController {
 
     private ArrayList<Nivel> niveles;
-//	private RepositorioNivel repositorio;
     private RepositorioNivelHM repositorioHM;
 
     public NivelController() {
         recuperarNiveles();
     }
 
-//	public void recuperarNiveles() {
-//		File archivo = new File("Niveles.dat");
-//		repositorio = new RepositorioNivel(archivo);
-//	}
-//	public void guardarNiveles() {
-//		repositorio.salvar(niveles);
-//		guardarNivelesMapa();
-//	}
     private void recuperarNiveles() {
-        File archivo = new File("Niveles.dat");
+        File archivo = new File("niveles.json");
         repositorioHM = new RepositorioNivelHM(archivo);
-        ArrayList<HashMap<String, Serializable>> mapaNiveles = repositorioHM.recuperar();
-        construirNiveles(mapaNiveles);
+        List<NivelModelo> nivelesModelo = repositorioHM.recuperar();
+        construirNiveles(nivelesModelo);
     }
 
-    private void construirNiveles(ArrayList<HashMap<String, Serializable>> mapaNiveles) {
-        niveles = new ArrayList<Nivel>();
-        for (HashMap<String, Serializable> mapaNivel : mapaNiveles) {
-            Pista[][] posicion = new Pista[(Integer) mapaNivel.get("ancho")][(Integer) mapaNivel.get("alto")];
-            Nivel nivel = new Nivel((String) mapaNivel.get("idNivel"), (Integer) mapaNivel.get("ancho"), (Integer) mapaNivel.get("alto"), posicion);
-            nivel.setStartX((Integer) mapaNivel.get("startX"));
-            nivel.setStartY((Integer) mapaNivel.get("startY"));
-            ArrayList<HashMap<String, Serializable>> mapaPistas = (ArrayList<HashMap<String, Serializable>>) mapaNivel.get("pistas");
-            for (HashMap<String, Serializable> mapaPista : mapaPistas) {
-                Pista pista = new Pista((Integer) mapaPista.get("x"), (Integer) mapaPista.get("y"), revisarModelo((String) mapaPista.get("modelo")), revisarItem((String) mapaPista.get("item")));
-                pista.setBloque(new BloquePista((String) mapaPista.get("bloque")));
+    private void construirNiveles(List<NivelModelo> nivelesModelo) {
+        niveles = new ArrayList<>();
+        for (NivelModelo nivelModelo : nivelesModelo) {
+            Pista[][] posicion = new Pista[nivelModelo.getAncho()][nivelModelo.getAlto()];
+            Nivel nivel = new Nivel(nivelModelo.getIdNivel(), nivelModelo.getAncho(), nivelModelo.getAncho(), posicion);
+            nivel.setStartX(nivelModelo.getStartX());
+            nivel.setStartY(nivelModelo.getStartY());
+            
+            for (NivelModelo.Pista pistaModelo : nivelModelo.getPistas()) {
+                Pista pista = new Pista(
+                    pistaModelo.getX(),
+                    pistaModelo.getY(),
+                    revisarModelo(pistaModelo.getModelo()),
+                    revisarItem(pistaModelo.getItem())
+                );
+                pista.setBloque(new BloquePista(pistaModelo.getBloque()));
                 nivel.agregarPista(pista);
             }
+            
             BloqueController bc = new BloqueController(nivel);
             bc.calcularBloquesNivel();
             niveles.add(nivel);
@@ -135,36 +132,35 @@ public class NivelController {
     }
 
     public void guardarNiveles() {
-        ArrayList<HashMap<String, Serializable>> mapaNiveles = new ArrayList<>();
+        List<NivelModelo> nivelesModelo = new ArrayList<>();
         for (Nivel nivel : niveles) {
-            HashMap<String, Serializable> mapaNivel = new HashMap<>();
-            mapaNivel.put("idNivel", nivel.getIdNivel());
-            mapaNivel.put("ancho", nivel.getAncho());
-            mapaNivel.put("alto", nivel.getAlto());
-            mapaNivel.put("startX", nivel.getStartX());
-            mapaNivel.put("startY", nivel.getStartY());
-            ArrayList<HashMap<String, Serializable>> mapaPistas = new ArrayList<>();
+            NivelModelo nivelModelo = new NivelModelo();
+            nivelModelo.setIdNivel(nivel.getIdNivel());
+            nivelModelo.setAncho(nivel.getAncho());
+            nivelModelo.setAlto(nivel.getAlto());
+            nivelModelo.setStartX(nivel.getStartX());
+            nivelModelo.setStartY(nivel.getStartY());
+            
+            List<NivelModelo.Pista> pistas = new ArrayList<>();
             for (int i = 0; i < nivel.getAncho(); i++) {
                 for (int j = 0; j < nivel.getAlto(); j++) {
                     if (nivel.getPosicion()[i][j] != null) {
-                        HashMap<String, Serializable> mapaPista = new HashMap<>();
-                        mapaPista.put("x", nivel.getPosicion()[i][j].getX());
-                        mapaPista.put("y", nivel.getPosicion()[i][j].getY());
-                        mapaPista.put("modelo", nivel.getPosicion()[i][j].getModelo().getNombre());
-                        mapaPista.put("bloque", nivel.getPosicion()[i][j].getBloque().getId());
-                        if (nivel.getPosicion()[i][j].getItem() != null) {
-                            mapaPista.put("item", nivel.getPosicion()[i][j].getItem().getNombre());
-                        } else {
-                            mapaPista.put("item", "");
-                        }
-                        mapaPistas.add(mapaPista);
+                        Pista pista = nivel.getPosicion()[i][j];
+                        NivelModelo.Pista pistaModelo = new NivelModelo.Pista();
+                        pistaModelo.setX(pista.getX());
+                        pistaModelo.setY(pista.getY());
+                        pistaModelo.setModelo(pista.getModelo().getNombre());
+                        pistaModelo.setBloque(pista.getBloque().getId());
+                        pistaModelo.setItem(pista.getItem() != null ? pista.getItem().getNombre() : "");
+                        pistas.add(pistaModelo);
                     }
                 }
             }
-            mapaNivel.put("pistas", mapaPistas);
-            mapaNiveles.add(mapaNivel);
+            nivelModelo.setPistas(pistas);
+            nivelesModelo.add(nivelModelo);
         }
-        repositorioHM.salvar(mapaNiveles);
+        // Guardar la lista de niveles
+        repositorioHM.salvar(nivelesModelo);
     }
 
     public Nivel buscarNivel(String idNivel) {
