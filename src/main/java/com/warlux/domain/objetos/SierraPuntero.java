@@ -1,6 +1,9 @@
 package com.warlux.domain.objetos;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Image;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -12,13 +15,13 @@ public class SierraPuntero {
 	private Image imagenO;	
 	
 	public SierraPuntero(){
-		ImageIcon ii = new ImageIcon("src/main/resources/modeloObjetos/sierraN.png");
+		ImageIcon ii = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_SIERRAN)));
 		imagenN = ii.getImage();
-		ii = new ImageIcon("src/main/resources/modeloObjetos/sierraS.png");
+		ii = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_SIERRAS)));
 		imagenS = ii.getImage();
-		ii = new ImageIcon("src/main/resources/modeloObjetos/sierraE.png");
+		ii = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_SIERRAE)));
 		imagenE = ii.getImage();
-		ii = new ImageIcon("src/main/resources/modeloObjetos/sierraO.png");
+		ii = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_SIERRAO)));
 		imagenO = ii.getImage();
 	}
 

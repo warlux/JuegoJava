@@ -1,7 +1,10 @@
 package com.warlux.domain.objetos;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.Objects;
 import javax.swing.ImageIcon;
 
 public class Vehiculo {
@@ -23,25 +26,25 @@ public class Vehiculo {
             Toolkit t = Toolkit.getDefaultToolkit ();
             switch (tipo) {
                 case "v1":
-                    imagenN = new ImageIcon("src/main/resources/modeloObjetos/v1N.png").getImage();		
-                    imagenS = new ImageIcon("src/main/resources/modeloObjetos/v1S.png").getImage();		
-                    imagenE = new ImageIcon("src/main/resources/modeloObjetos/v1E.png").getImage();
-                    imagenO = new ImageIcon("src/main/resources/modeloObjetos/v1O.png").getImage();                    
-                    aSaltoN = t.createImage("src/main/resources/modeloObjetos/v1NSalto.gif");
-                    aSaltoS = t.createImage("src/main/resources/modeloObjetos/v1SSalto.gif");
-                    aSaltoE=  t.createImage("src/main/resources/modeloObjetos/v1ESalto.gif");
-                    aSaltoO = t.createImage("src/main/resources/modeloObjetos/v1OSalto.gif");
+                    imagenN = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1N))).getImage();
+                    imagenS = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1S))).getImage();
+                    imagenE = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1E))).getImage();
+                    imagenO = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1O))).getImage();
+                    aSaltoN = t.createImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1NSALTO)));
+                    aSaltoS = t.createImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1SSALTO)));
+                    aSaltoE=  t.createImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1ESALTO)));
+                    aSaltoO = t.createImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1OSALTO)));
                     potenciaSalto = 0;
                     almacenamiento = 3;
                     energiaMax = 3;
                     habilidad = "";
                     break;
                 case "jefe1":
-                    imagenN = new ImageIcon("src/main/resources/modeloObjetos/j1N.png").getImage();		
-                    imagenS = new ImageIcon("src/main/resources/modeloObjetos/j1S.png").getImage();		
-                    imagenE = new ImageIcon("src/main/resources/modeloObjetos/j1E.png").getImage();
-                    imagenO = new ImageIcon("src/main/resources/modeloObjetos/j1O.png").getImage();
-                    break;
+                    imagenN = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_J1N))).getImage();
+                    imagenS = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_J1S))).getImage();
+					imagenE = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_J1E))).getImage();
+					imagenO = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_J1O))).getImage();
+					break;
             }
 	}
 

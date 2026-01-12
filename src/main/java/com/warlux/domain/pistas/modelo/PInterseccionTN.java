@@ -1,17 +1,17 @@
 package com.warlux.domain.pistas.modelo;
 
+import com.warlux.constants.AssetsPath;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
+import java.util.Objects;
 
 public class PInterseccionTN extends Modelo {
 
 	public PInterseccionTN() {
 		super();
 		nombre = "pInterseccionTN";
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pInterseccionTN.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PINTERSECCIONTN)));
 		Rectangle colision1 = new Rectangle(0, 0, 30, 30);
 		Rectangle colision2 = new Rectangle(70, 0, 30, 30);
 		Rectangle colision3 = new Rectangle(0, 70, 100, 30);
@@ -28,15 +28,11 @@ public class PInterseccionTN extends Modelo {
 	}
 
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistasFocus/vpInterseccionTN.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPINTERSECCIONTN)));
 	}
 
 	public void cambiarImagenDesactivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pInterseccionTN.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PINTERSECCIONTN)));
 	}
 
 }

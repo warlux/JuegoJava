@@ -1,7 +1,10 @@
 package com.warlux.domain.pistas.modelo;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -10,7 +13,7 @@ public class PSaltoN extends Modelo {
 	public PSaltoN() {
 		super();
 		nombre = "pSaltoN";
-		imagen = new ImageIcon("src/main/resources/modeloPistas/pSaltoN.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PSALTON)));
 		Rectangle colision1 = new Rectangle(0, 0, 30, 100);
 		Rectangle colision2 = new Rectangle(70, 0, 30, 100);
 		Rectangle colision3 = new Rectangle(30, 0, 40, 2);
@@ -27,13 +30,10 @@ public class PSaltoN extends Modelo {
 	}
 
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistasFocus/vpSaltoN.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPSALTON)));
 	}
 
 	public void cambiarImagenDesactivada() {
-		imagen = new ImageIcon("src/main/resources/modeloPistas/pSaltoN.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PSALTON)));
 	}
 }

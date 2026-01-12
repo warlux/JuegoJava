@@ -2,9 +2,11 @@ package com.warlux.domain.objetos.overworld;
 
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
+import com.warlux.constants.AssetsPath;
 import com.warlux.domain.pistas.Nivel;
 
 public class PuntoOverworld {
@@ -32,9 +34,9 @@ public class PuntoOverworld {
 		this.rectanglePunto = rectanglePunto;
 		rejugable = false;
 		terminado = false;
-		imagenActivada = new ImageIcon("src/main/resources/modeloOverworld/puntoNivelSeleccionado.png");
-		imagenDesactivada = new ImageIcon("src/main/resources/modeloOverworld/puntoNivel.png");
-		imagenTerminado = new ImageIcon("src/main/resources/modeloOverworld/puntoNivelTerminado.png");
+		imagenActivada = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_PUNTONIVELSELECCIONADO)));
+		imagenDesactivada = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_PUNTONIVEL)));
+		imagenTerminado = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_PUNTONIVELTERMINADO)));
 		inicializarVariables();
 	}	
 

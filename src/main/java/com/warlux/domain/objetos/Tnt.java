@@ -1,8 +1,11 @@
 package com.warlux.domain.objetos;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -18,7 +21,7 @@ public class Tnt {
         this.y = y;
         evadirDaño = false;
         Toolkit t = Toolkit.getDefaultToolkit();
-        imagen = t.createImage("src/main/resources/modeloObjetos/tnt.gif");
+        imagen = t.createImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_TNT_GIF)));
     }
 
     public int getX() {

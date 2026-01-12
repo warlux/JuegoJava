@@ -1,8 +1,11 @@
 package com.warlux.domain.objetos;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.util.Objects;
 
 
 public class Mortar {
@@ -17,7 +20,7 @@ public class Mortar {
         this.y = y;
         evadirDaño = false;
         Toolkit t = Toolkit.getDefaultToolkit();
-        imagen = t.createImage("src/main/resources/modeloObjetos/mortar.gif");
+        imagen = t.createImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_MORTAR)));
     }
 
     public int getX() {

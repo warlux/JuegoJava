@@ -8,11 +8,13 @@ import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Objects;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.TransferHandler;
 
+import com.warlux.constants.AssetsPath;
 import com.warlux.controller.BloqueController;
 import com.warlux.controller.NivelController;
 import com.warlux.domain.objetos.items.IAbismo;
@@ -228,7 +230,7 @@ public class PlantillaNivel extends JPanel {
 			}
 			Toolkit t = Toolkit.getDefaultToolkit();
 			Image imagen = t
-					.getImage("src/main/resources/modeloObjetos/puntoPartida.png");
+					.getImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_PUNTOPARTIDA)));
 			g.drawImage(imagen, nivel.getStartX() - 40, nivel.getStartY() - 40,
 					this);
 

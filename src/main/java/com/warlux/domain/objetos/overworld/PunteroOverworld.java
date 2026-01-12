@@ -1,28 +1,27 @@
 package com.warlux.domain.objetos.overworld;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
 public class PunteroOverworld {
 
-	private ImageIcon imagenNorte;
-	private ImageIcon imagenSur;
-	private ImageIcon imagenEste;
-	private ImageIcon imagenOeste;
+	private final ImageIcon imagenNorte;
+	private final ImageIcon imagenSur;
+	private final ImageIcon imagenEste;
+	private final ImageIcon imagenOeste;
 	private int x, y, dx, dy;
 	private String direccion;
 
 	public PunteroOverworld(int startX, int startY) {
-		imagenNorte = new ImageIcon(
-				"src/main/resources/modeloOverworld/punteroNorte.png");
-		imagenSur = new ImageIcon(
-				"src/main/resources/modeloOverworld/punteroSur.png");
-		imagenEste = new ImageIcon(
-				"src/main/resources/modeloOverworld/punteroEste.png");
-		imagenOeste = new ImageIcon(
-				"src/main/resources/modeloOverworld/punteroOeste.png");
+		imagenNorte = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_PUNTERONORTE)));
+		imagenSur = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_PUNTEROSUR)));
+		imagenEste = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_PUNTEROESTE)));
+		imagenOeste = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_PUNTEROOESTE)));
 		x = startX;
 		y = startY;
 		dx = 0;
@@ -31,18 +30,14 @@ public class PunteroOverworld {
 	}
 
 	public Image getImagen() {
-		switch (direccion) {
-		case "norte":
-			return imagenNorte.getImage();
-		case "sur":
-			return imagenSur.getImage();
-		case "este":
-			return imagenEste.getImage();
-		case "oeste":
-			return imagenOeste.getImage();
-		}
-		return null;
-	}
+        return switch (direccion) {
+            case "norte" -> imagenNorte.getImage();
+            case "sur" -> imagenSur.getImage();
+            case "este" -> imagenEste.getImage();
+            case "oeste" -> imagenOeste.getImage();
+            default -> null;
+        };
+    }
 
 	public void logic() {
 		x += dx;

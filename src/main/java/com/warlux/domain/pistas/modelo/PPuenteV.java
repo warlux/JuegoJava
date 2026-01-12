@@ -1,7 +1,10 @@
 package com.warlux.domain.pistas.modelo;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -10,8 +13,7 @@ public class PPuenteV extends Modelo {
 	public PPuenteV() {
 		super();
 		nombre = "pPuenteV";
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pPuenteV.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PPUENTEV)));
 		Rectangle colision1 = new Rectangle(0, 0, 30, 30);
 		Rectangle colision2 = new Rectangle(70, 0, 30, 30);
 		Rectangle colision3 = new Rectangle(70, 70, 30, 30);
@@ -39,32 +41,26 @@ public class PPuenteV extends Modelo {
 
 	public void cambiarImagenActivada() {
 		if(!puenteRoto){
-			imagen = new ImageIcon(
-					"src/main/resources/modeloPistasFocus/vpPuenteVV.png");
+			imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPPUENTEVV)));
 		} else {
-			imagen = new ImageIcon(
-					"src/main/resources/modeloPistasFocus/vpPuenteVVRoto.png");
+			imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPPUENTEVVROTO)));
 		}
 	}
 
 	public void cambiarImagenDesactivada() {
 		if(!puenteRoto){
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pPuenteV.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PPUENTEV)));
 		} else {
-			imagen = new ImageIcon(
-					"src/main/resources/modeloPistas/pPuenteVRoto.png");
+			imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PPUENTEVROTO)));
 		}
 	}
 
 	@Override
 	public void cambiarImagenCondicional(){
 		if(!puenteRoto){
-			imagen = new ImageIcon(
-					"src/main/resources/modeloPistasFocus/vpPuenteVH.png");
+			imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPPUENTEVH)));
 		} else {
-			imagen = new ImageIcon(
-					"src/main/resources/modeloPistasFocus/vpPuenteVHRoto.png");
+			imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPPUENTEVHROTO)));
 		}
 	}
 }

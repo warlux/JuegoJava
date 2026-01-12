@@ -1,16 +1,17 @@
 package com.warlux.domain.pistas.modelo;
 
+import com.warlux.constants.AssetsPath;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
+import java.util.Objects;
 
 public class PCurvaSE extends Modelo {
 
 	public PCurvaSE() {
 		super();
 		nombre = "pCurvaSE";
-		imagen = new ImageIcon("src/main/resources/modeloPistas/pCurvaSE.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PCURVASE)));
 		Rectangle colision1 = new Rectangle(0, 0, 30, 100);
 		Rectangle colision2 = new Rectangle(30, 0, 70, 30);
 		Rectangle colision3 = new Rectangle(70, 70, 30, 30);
@@ -25,14 +26,11 @@ public class PCurvaSE extends Modelo {
 	}
 
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistasFocus/vpCurvaSE.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPCURVASE)));
 	}
 
 	public void cambiarImagenDesactivada() {
-		imagen = new ImageIcon("src/main/resources/modeloPistas/pCurvaSE.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PCURVASE)));
 	}
 
 }

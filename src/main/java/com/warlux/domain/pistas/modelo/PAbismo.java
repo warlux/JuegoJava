@@ -1,17 +1,17 @@
 package com.warlux.domain.pistas.modelo;
 
+import com.warlux.constants.AssetsPath;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
+import java.util.Objects;
 
 public class PAbismo extends Modelo {
 
 	public PAbismo() {
 		super();
 		nombre = "pAbismo";
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pAbismo.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PABISMO)));
 		Rectangle colision1 = new Rectangle(0, 0, 30, 30);
 		Rectangle colision2 = new Rectangle(70, 0, 30, 30);
 		Rectangle colision3 = new Rectangle(70, 70, 30, 30);
@@ -32,15 +32,11 @@ public class PAbismo extends Modelo {
 	}
 
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pAbismo.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PABISMO)));
 	}
 
 	public void cambiarImagenDesactivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pAbismo.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PABISMO)));
 	}
 
 }

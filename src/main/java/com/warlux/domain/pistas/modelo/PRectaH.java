@@ -1,7 +1,10 @@
 package com.warlux.domain.pistas.modelo;
 
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -10,7 +13,7 @@ public class PRectaH extends Modelo {
 	public PRectaH() {
 		super();
 		nombre = "pRectaH";
-		imagen = new ImageIcon("src/main/resources/modeloPistas/pRectaH.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PRECTAH)));
 		Rectangle colision1 = new Rectangle(0, 0, 100, 30);
 		Rectangle colision2 = new Rectangle(0, 70, 100, 30);
 		colisiones = new ArrayList<>();
@@ -23,13 +26,10 @@ public class PRectaH extends Modelo {
 	}
 
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloPistasFocus/vpRectaH.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPRECTAH)));
 	}
 
 	public void cambiarImagenDesactivada() {
-		imagen = new ImageIcon("src/main/resources/modeloPistas/pRectaH.png");
-
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PRECTAH)));
 	}
 }

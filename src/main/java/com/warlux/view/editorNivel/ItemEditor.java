@@ -2,18 +2,18 @@ package com.warlux.view.editorNivel;
 
 import javax.swing.JComponent;
 import javax.swing.TransferHandler;
+import java.util.Objects;
 
-@SuppressWarnings("serial")
 public class ItemEditor extends javax.swing.JLabel{
 
 	public ItemEditor(String nombreIcono, String tipoElemento){
 		super();
 		switch (tipoElemento) {
 		case "pista":
-			this.setIcon(new javax.swing.ImageIcon("src/main/resources/modeloPistas/"+nombreIcono+".png"));
+			this.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/assets/tracks/regular/"+nombreIcono+".png"))));
 			break;
 		case "item":
-			this.setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/"+nombreIcono+".png"));
+			this.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/assets/objects/"+nombreIcono+".png"))));
 			break;
 		}		
 		this.setName(nombreIcono);

@@ -2,9 +2,11 @@ package com.warlux.domain.objetos.overworld;
 
 import java.awt.Rectangle;
 import java.util.HashMap;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
+import com.warlux.constants.AssetsPath;
 import com.warlux.controller.NivelController;
 
 public class MapaOverworld {
@@ -18,8 +20,7 @@ public class MapaOverworld {
 	public MapaOverworld(){
 		nc = new NivelController();
 		nombre = "principal";
-		imagenFondo = new ImageIcon(
-				"src/main/resources/modeloOverworld/overworld.png");
+		imagenFondo = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OVERWORLD_OVERWORLD)));
 		puntero = new PunteroOverworld(672, 1611);
 		crearPuntos();		
 	}
@@ -29,7 +30,7 @@ public class MapaOverworld {
 		PuntoOverworld p0 = new PuntoOverworld(new Rectangle(669, 1608, 100, 100));
 		PuntoOverworld n1 = new PuntoOverworld(nc.buscarNivel("n1"),new Rectangle(669, 1377, 100, 100));
 		PuntoOverworld n0 = new PuntoOverworld(nc.buscarNivel("n0"),new Rectangle(269, 1377, 100, 100));
-		ImageIcon ii = new ImageIcon("src/main/resources/modeloFondos/fondoV.png");
+		ImageIcon ii = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.BACKGROUNDS_FONDOV)));
 		n0.getNivel().setFondo(ii.getImage());
 		n1.getNivel().setFondo(ii.getImage());
 		PuntoOverworld p1 = new PuntoOverworld(new Rectangle(669, 1268, 100, 100));

@@ -1,9 +1,11 @@
 package com.warlux.domain.objetos;
 
+import com.warlux.constants.AssetsPath;
 import com.warlux.view.Tablero;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.util.Objects;
 import javax.swing.ImageIcon;
 
 public class Laser {
@@ -24,28 +26,28 @@ public class Laser {
                 y = startY - 30;
                 dx = 0;
                 dy = -SPEED;                
-                imagen = new ImageIcon("src/main/resources/modeloObjetos/laserV.png").getImage();
+                imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_LASERV))).getImage();
                 break;
             case "sur":
                 x = startX;
                 y = startY + 30;
                 dx = 0;
                 dy = SPEED;
-                imagen = new ImageIcon("src/main/resources/modeloObjetos/laserV.png").getImage();
+                imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_LASERV))).getImage();
                 break;
             case "este":
                 x = startX + 30;
                 y = startY;
                 dx = SPEED;
                 dy = 0;
-                imagen = new ImageIcon("src/main/resources/modeloObjetos/laserH.png").getImage();
+                imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_LASERH))).getImage();
                 break;
             case "oeste":
                 x = startX - 30;
                 y = startY;
                 dx = -SPEED;
                 dy = 0;
-                imagen = new ImageIcon("src/main/resources/modeloObjetos/laserH.png").getImage();
+                imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_LASERH))).getImage();
                 break;      
         }
     }

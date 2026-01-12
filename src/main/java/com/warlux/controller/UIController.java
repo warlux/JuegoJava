@@ -2,9 +2,13 @@ package com.warlux.controller;
 
 import javax.swing.ImageIcon;
 
+import com.warlux.constants.AssetsPath;
 import com.warlux.domain.objetos.Scorecard;
 import com.warlux.view.Itemboard;
 import com.warlux.view.Scoreboard;
+
+import java.awt.*;
+import java.util.Objects;
 
 public class UIController {
 	
@@ -68,7 +72,7 @@ public class UIController {
 		sb.getImgVida6().setIcon(null);
 		sb.getImgVida7().setIcon(null);
 		int contador = vidas;
-        ImageIcon imagen = new javax.swing.ImageIcon("src/main/resources/modeloObjetos/v1.png");
+        ImageIcon imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1)));
         if(contador > 0){
         	sb.getImgVida1().setIcon(imagen);
         	contador--;
@@ -107,7 +111,7 @@ public class UIController {
 		sb.getImgEnergia6().setIcon(null);
 		sb.getImgEnergia7().setIcon(null);
 		int contador = energia;
-        ImageIcon imagen = new javax.swing.ImageIcon("src/main/resources/modeloObjetos/energia.png");
+        ImageIcon imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ENERGIA)));
         if(contador > 0){
         	sb.getImgEnergia1().setIcon(imagen);
         	contador--;
@@ -147,7 +151,7 @@ public class UIController {
 		sb.getImgEstabilizador7().setIcon(null);
 		sb.getImgEstabilizador8().setIcon(null);
 		int contador = estabilizador;
-        ImageIcon imagen = new javax.swing.ImageIcon("src/main/resources/modeloObjetos/estabilizador.png");
+        ImageIcon imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ESTABILIZADOR)));
         if(contador > 0){
         	sb.getImgEstabilizador1().setIcon(imagen);
         	contador--;
@@ -185,7 +189,7 @@ public class UIController {
 	private void establecerModelo(int modelo){
 		switch (modelo) {
 		case 1:
-			sb.getImgModelo().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/v1.png"));
+			sb.getImgModelo().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_V1))));
 			break;
 
 		default:
@@ -206,29 +210,29 @@ public class UIController {
 		case "coraza":
 			ib.getTxtItem().setText(String.valueOf(score.getBolsaItems().getCoraza()));
 				if(score.isCorazaActivada()){
-					ib.getLblItem().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/iCorazaIluminada.png"));
-				}else {
-					ib.getLblItem().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/iCoraza.png"));
+					ib.getLblItem().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ICORAZAILUMINADA))));
+				} else {
+					ib.getLblItem().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ICORAZA))));
 				}
 			break;
 		case "salto":
-			ib.getLblItem().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/iSalto.png"));
+			ib.getLblItem().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ISALTO))));
 			ib.getTxtItem().setText(String.valueOf(score.getBolsaItems().getSalto()));
 			break;
 		case "sierra":
-			ib.getLblItem().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/iSierra.png"));
+			ib.getLblItem().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ISIERRA))));
 			ib.getTxtItem().setText(String.valueOf(score.getBolsaItems().getSierra()));
 			break;
 		case "tnt":
-			ib.getLblItem().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/iTnt.png"));
+			ib.getLblItem().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ITNT))));
 			ib.getTxtItem().setText(String.valueOf(score.getBolsaItems().getTnt()));
 			break;
 		case "llaveN":
-			ib.getLblItem().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/iLlaveN.png"));
+			ib.getLblItem().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ILLAVEN))));
 			ib.getTxtItem().setText(String.valueOf(score.getBolsaItems().getLlaveN()));
 			break;
 		case "llaveS1":
-			ib.getLblItem().setIcon(new javax.swing.ImageIcon("src/main/resources/modeloObjetos/iLlaveS1.png"));
+			ib.getLblItem().setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ILLAVES1))));
 			ib.getTxtItem().setText(String.valueOf(score.getBolsaItems().getLlaveS1()));
 			break;
 		}

@@ -3,24 +3,23 @@ package com.warlux.domain.objetos.items;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-
+import com.warlux.constants.AssetsPath;
 import com.warlux.domain.objetos.ItemEfecto;
+import javax.swing.ImageIcon;
+import java.util.Objects;
 
 public class IPuenteV extends Item{
 
 	public IPuenteV() {
 		super();
-		imagen = new ImageIcon(
-				"src/main/resources/modeloObjetos/iPuenteV.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_IPUENTEV)));
 		permanente = true;
 		nombre = "puenteV";
 	}
 	
 	@Override
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloObjetos/iPuenteV.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_IPUENTEV)));
 
 	}
 

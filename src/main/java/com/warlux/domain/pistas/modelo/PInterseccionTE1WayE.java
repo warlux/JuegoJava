@@ -1,10 +1,10 @@
 package com.warlux.domain.pistas.modelo;
 
-import java.awt.Image;
+import com.warlux.constants.AssetsPath;
+
 import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import javax.swing.ImageIcon;
 
@@ -14,7 +14,7 @@ public class PInterseccionTE1WayE extends Modelo {
 		super();
 		nombre = "pInterseccionTE1WayE";
 		imagen = new ImageIcon(
-				"src/main/resources/modeloPistas/pInterseccionTE1WayE.png");
+				Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PINTERSECCIONTE1WAYE)));
 		Rectangle colision1 = new Rectangle(0, 0, 30, 100);
 		Rectangle colision2 = new Rectangle(70, 0, 30, 30);
 		Rectangle colision3 = new Rectangle(70, 70, 30, 30);
@@ -33,17 +33,17 @@ public class PInterseccionTE1WayE extends Modelo {
 	}
 
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon("src/main/resources/modeloPistasFocus/vpInterseccionTE1WayE1.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPINTERSECCIONTE1WAYE1)));
 
 	}
 
 	public void cambiarImagenDesactivada() {
-		imagen = new ImageIcon("src/main/resources/modeloPistas/pInterseccionTE1WayE.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_REGULAR_PINTERSECCIONTE1WAYE)));
 
 	}
 	
 	@Override
 	public void cambiarImagenCondicional(){
-		imagen = new ImageIcon("src/main/resources/modeloPistasFocus/vpInterseccionTE1WayE2.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.TRACKS_FOCUSED_VPINTERSECCIONTE1WAYE2)));
 	}
 }

@@ -1,10 +1,12 @@
 package com.warlux.domain.objetos;
 
+import com.warlux.constants.AssetsPath;
 import com.warlux.view.Tablero;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.util.Objects;
 
 public class LaserGuiado {
 
@@ -15,7 +17,7 @@ public class LaserGuiado {
     public LaserGuiado(int startX, int startY, double angulo) {
         evadirDaño = false;
         Toolkit t = Toolkit.getDefaultToolkit();
-        imagen = t.createImage("src/main/resources/modeloObjetos/bolaFuego.gif");
+        imagen = t.createImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_BOLAFUEGO)));
         
         if (angulo > 352.5 || angulo <= 7.5) {
             x = startX + 30;

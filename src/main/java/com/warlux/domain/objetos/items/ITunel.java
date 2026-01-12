@@ -1,14 +1,15 @@
 package com.warlux.domain.objetos.items;
 
-import javax.swing.ImageIcon;
-
+import com.warlux.constants.AssetsPath;
 import com.warlux.domain.objetos.ItemEfecto;
+import javax.swing.ImageIcon;
+import java.util.Objects;
 
 public class ITunel extends Item {
 
 	public ITunel() {
 		super();
-		imagen = new ImageIcon("src/main/resources/modeloObjetos/iTunel.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ITUNEL)));
 		permanente = true;
 		nombre = "tunel";
 		efecto = new ItemEfecto();
@@ -17,14 +18,13 @@ public class ITunel extends Item {
 
 	@Override
 	public void cambiarImagenActivada() {
-		imagen = new ImageIcon("src/main/resources/modeloObjetos/iTunel.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ITUNEL)));
 
 	}
 
 	@Override
 	public void cambiarImagenCondicional() {
-		imagen = new ImageIcon(
-				"src/main/resources/modeloObjetos/iTunelAbierto.png");
+		imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_ITUNELABIERTO)));
 
 	}
 }
