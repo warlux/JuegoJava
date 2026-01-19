@@ -1,7 +1,7 @@
 package com.warlux.domain.objetos;
 
 import com.warlux.constants.AssetsPath;
-import com.warlux.view.Tablero;
+import com.warlux.view.GameBoard;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -198,8 +198,8 @@ public class LaserGuiado {
                 imagen.getHeight(null));
     }
 
-    public void draw(Graphics2D g2d, Tablero tablero) {
-        g2d.drawImage(imagen, x, y, tablero);
+    public void draw(Graphics2D g2d, GameBoard gameBoard) {
+        g2d.drawImage(imagen, x, y, gameBoard);
     }
 
     public void setDy(int dy) {

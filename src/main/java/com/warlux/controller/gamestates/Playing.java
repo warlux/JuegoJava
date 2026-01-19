@@ -18,18 +18,17 @@ import com.warlux.domain.objetos.ItemEfecto;
 import com.warlux.domain.objetos.ItemSuelto;
 import com.warlux.domain.objetos.Puntero;
 import com.warlux.domain.objetos.Scorecard;
-import com.warlux.domain.objetos.items.Item;
 import com.warlux.domain.pistas.CampoProyectiles;
 import com.warlux.domain.pistas.Nivel;
 import com.warlux.domain.pistas.Pista;
 import com.warlux.util.PuntoDestino;
-import com.warlux.view.Itemboard;
-import com.warlux.view.Scoreboard;
-import com.warlux.view.Tablero;
+import com.warlux.view.ItemBoard;
+import com.warlux.view.ScoreBoard;
+import com.warlux.view.GameBoard;
 
 public class Playing implements Commons {
 
-    private Tablero tablero;
+    private GameBoard gameBoard;
     private Puntero puntero;
     private Nivel nivel;
     private Scorecard score;
@@ -43,8 +42,8 @@ public class Playing implements Commons {
     private ArrayList<Jefe> jefes;
     private ArrayList<ItemSuelto> itemsSueltos;
 
-    public Playing(Tablero tablero, Nivel nivel, Scorecard score, Scoreboard sb, Itemboard ib) {
-        this.tablero = tablero;
+    public Playing(GameBoard gameBoard, Nivel nivel, Scorecard score, ScoreBoard sb, ItemBoard ib) {
+        this.gameBoard = gameBoard;
         this.nivel = nivel;
         this.score = score;
         bc = new BloqueController(nivel);
@@ -392,9 +391,9 @@ public class Playing implements Commons {
         g2d.setColor(Color.red);
         for (int i = 0; i < nivel.getAncho(); i++) {
             for (int j = 0; j < nivel.getAlto(); j++) {
-                g2d.drawImage(nivel.getFondo(), i * 100, j * 100, tablero);
+                g2d.drawImage(nivel.getFondo(), i * 100, j * 100, gameBoard);
                 if (nivel.getPosicion()[i][j] != null && nivel.getPosicion()[i][j].isVisible()) {
-                    g2d.drawImage(nivel.getPosicion()[i][j].getModelo().getImagen(), nivel.getPosicion()[i][j].getX(), nivel.getPosicion()[i][j].getY(), tablero);
+                    g2d.drawImage(nivel.getPosicion()[i][j].getModelo().getImagen(), nivel.getPosicion()[i][j].getX(), nivel.getPosicion()[i][j].getY(), gameBoard);
                     if (nivel.getPosicion()[i][j].getPaseBloqueCerrado() != null) {
                         g2d.fill(nivel.getPosicion()[i][j].getPaseBloqueCerrado());
                     }
@@ -402,33 +401,33 @@ public class Playing implements Commons {
             }
         }
         if (estadoJuego == PlayingState.Juego) {
-            puntero.draw(g2d, tablero);
+            puntero.draw(g2d, gameBoard);
         } else {
             if (estadoJuego == PlayingState.AnimacionSalto) {
-                puntero.drawAnimacion(g2d, tablero);
+                puntero.drawAnimacion(g2d, gameBoard);
             }
         }
         for (Jefe jefe : jefes) {
-            jefe.draw(g2d, tablero);
+            jefe.draw(g2d, gameBoard);
         }
-        proyectiles.draw(g2d, tablero);
+        proyectiles.draw(g2d, gameBoard);
         for (int i = 0; i < nivel.getAncho(); i++) {
             for (int j = 0; j < nivel.getAlto(); j++) {
                 if (nivel.getPosicion()[i][j] != null
                         && nivel.getPosicion()[i][j].isVisible() && nivel.getPosicion()[i][j].getItem() != null && (nivel.getPosicion()[i][j].getItem().isEstado() || nivel.getPosicion()[i][j].getItem().isPermanente())) {
                     g2d.drawImage(nivel.getPosicion()[i][j].getItem()
                             .getImagen(), nivel.getPosicion()[i][j].getX(),
-                            nivel.getPosicion()[i][j].getY(), tablero);
+                            nivel.getPosicion()[i][j].getY(), gameBoard);
                 }
             }
         }
         for(ItemSuelto itemSuelto : itemsSueltos){
-             g2d.drawImage(itemSuelto.getItem().getImagen(), itemSuelto.getX()-30, itemSuelto.getY()-30, tablero);
+             g2d.drawImage(itemSuelto.getItem().getImagen(), itemSuelto.getX()-30, itemSuelto.getY()-30, gameBoard);
         }
     }
 
-    public Tablero getTablero() {
-        return tablero;
+    public GameBoard getTablero() {
+        return gameBoard;
     }
 
     public Puntero getPuntero() {

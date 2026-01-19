@@ -1,15 +1,13 @@
 package com.warlux.domain.jefes;
 
-import com.warlux.domain.objetos.Tnt;
 import com.warlux.domain.objetos.Vehiculo;
 import com.warlux.domain.objetos.items.ILlaveN;
 import com.warlux.domain.objetos.items.Item;
 import com.warlux.domain.pistas.Pista;
-import com.warlux.view.Tablero;
+import com.warlux.view.GameBoard;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.image.BufferedImage;
 
 public class Jefe {
 
@@ -144,10 +142,10 @@ public class Jefe {
         y += dy;
     }
 
-    public void draw(Graphics2D g2d, Tablero tablero) {
+    public void draw(Graphics2D g2d, GameBoard gameBoard) {
         g2d.drawRect(x + 2, y - 20, 35, 5);
         g2d.fillRect(x + 2, y - 20, (int)( 35 * (double) vida / vidaMaxima), 5);
-        g2d.drawImage(getImagen(), x, y, tablero);
+        g2d.drawImage(getImagen(), x, y, gameBoard);
     }
 
     public Rectangle getBounds() {

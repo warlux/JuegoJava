@@ -8,9 +8,9 @@ import com.warlux.controller.gamestates.Overworld;
 import com.warlux.controller.gamestates.Playing;
 import com.warlux.domain.objetos.Scorecard;
 import com.warlux.domain.pistas.Nivel;
-import com.warlux.view.Itemboard;
-import com.warlux.view.Scoreboard;
-import com.warlux.view.Tablero;
+import com.warlux.view.ItemBoard;
+import com.warlux.view.ScoreBoard;
+import com.warlux.view.GameBoard;
 import com.warlux.view.editorNivel.VistaCrearNivel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -36,9 +36,9 @@ public class Engine implements ActionListener, Commons {
 	private Scorecard score;
 	private Timer timer;
 	private ItemController ic;
-	private Tablero tablero;
-	private Scoreboard scoreboard;
-	private Itemboard itemboard;
+	private GameBoard gameBoard;
+	private ScoreBoard scoreboard;
+	private ItemBoard itemboard;
 	private Principal principal;
 	private MenuScreen menuScreen;
 	private Playing playing;
@@ -47,15 +47,15 @@ public class Engine implements ActionListener, Commons {
 	private GameOver gameOver;
 
 	public Engine() {				
-		scoreboard = new Scoreboard();
-		itemboard = new Itemboard();
+		scoreboard = new ScoreBoard();
+		itemboard = new ItemBoard();
 		score = new Scorecard();
-		tablero = new Tablero(this);
+		gameBoard = new GameBoard(this);
 		timer = new Timer(10, this);
 		currentState = GameState.IntroScreen;
-		menuScreen = new MenuScreen(tablero);
-		introScreen = new IntroScreen(tablero);
-		overworld = new Overworld(tablero, score);
+		menuScreen = new MenuScreen(gameBoard);
+		introScreen = new IntroScreen(gameBoard);
+		overworld = new Overworld(gameBoard, score);
 		gameOver = new GameOver();
 		principal = new Principal();
 		desactivarFrames();
@@ -67,22 +67,22 @@ public class Engine implements ActionListener, Commons {
 	public void desactivarFrames(){
 		scoreboard.setVisible(false);
 		itemboard.setVisible(false);
-		tablero.aumentarTamaño();
-		tablero.setBackground(Color.BLACK);
+		gameBoard.expandHeight();
+		gameBoard.setBackground(Color.BLACK);
 		principal.pack();
 	}
 	
 	public void activarFrames(){
 		scoreboard.setVisible(true);
 		itemboard.setVisible(true);
-		tablero.reducirTamaño();
+		gameBoard.collapseHeight();
 		principal.pack();
 	}
 	
 	public void entrarNivel(){
 		Nivel nivel = overworld.getOc().getNivelSeleccionado();
 		if(nivel != null){
-			playing = new Playing(tablero, nivel, score, scoreboard, itemboard);
+			playing = new Playing(gameBoard, nivel, score, scoreboard, itemboard);
 			activarFrames();
 			score.setNivel(nivel.getIdNivel());
 			score.inicializarBolsaNivel();
@@ -109,7 +109,7 @@ public class Engine implements ActionListener, Commons {
 				}
 			}			
 		}
-		tablero.repaint();
+		gameBoard.repaint();
 	}
 
 	public void paintGame(Graphics g) {
@@ -142,15 +142,15 @@ public class Engine implements ActionListener, Commons {
 	
 
 
-	public Tablero getTablero() {
-		return tablero;
+	public GameBoard getTablero() {
+		return gameBoard;
 	}
 
-	public Scoreboard getScoreboard() {
+	public ScoreBoard getScoreboard() {
 		return scoreboard;
 	}
 
-	public Itemboard getItemboard() {
+	public ItemBoard getItemboard() {
 		return itemboard;
 	}
 	

@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 
-import com.warlux.view.Tablero;
+import com.warlux.view.GameBoard;
 
 public class Puntero {
 
@@ -146,43 +146,43 @@ public class Puntero {
 		return null;
 	}	
 	
-	public void draw(Graphics2D g2d, Tablero tablero){
-		g2d.drawImage(getImagen(), x,	y, tablero);
+	public void draw(Graphics2D g2d, GameBoard gameBoard){
+		g2d.drawImage(getImagen(), x,	y, gameBoard);
 		if(isSierra()){
 			switch (direccion) {
 			case "norte":
 				g2d.drawImage(sierraPuntero.getImagenN(), x,
-						y-17, tablero);
+						y-17, gameBoard);
 				break;
 			case "sur":
 				g2d.drawImage(sierraPuntero.getImagenS(), x,
-						y+17, tablero);
+						y+17, gameBoard);
 				break;
 			case "este":
 				g2d.drawImage(sierraPuntero.getImagenE(), x + 17,
-						y, tablero);
+						y, gameBoard);
 				break;
 			case "oeste":
 				g2d.drawImage(sierraPuntero.getImagenO(), x - 17,
-						y, tablero);
+						y, gameBoard);
 				break;
 			}
 		}
 	}	
 	
-	public void drawAnimacion(Graphics2D g2d, Tablero tablero){
+	public void drawAnimacion(Graphics2D g2d, GameBoard gameBoard){
 		switch (animacionSalto) {
 		case "oeste":
-			g2d.drawImage(getVehiculo().getaSaltoO(), x - (70 + 10*vehiculo.getPotenciaSalto()),y, tablero);
+			g2d.drawImage(getVehiculo().getaSaltoO(), x - (70 + 10*vehiculo.getPotenciaSalto()),y, gameBoard);
 			break;
 		case "sur":
-			g2d.drawImage(getVehiculo().getaSaltoS(), x,y, tablero);
+			g2d.drawImage(getVehiculo().getaSaltoS(), x,y, gameBoard);
 			break;
 		case "este":
-			g2d.drawImage(getVehiculo().getaSaltoE(), x,y, tablero);
+			g2d.drawImage(getVehiculo().getaSaltoE(), x,y, gameBoard);
 			break;
 		case "norte":
-			g2d.drawImage(getVehiculo().getaSaltoN(), x,y - (70 +10*vehiculo.getPotenciaSalto()), tablero);
+			g2d.drawImage(getVehiculo().getaSaltoN(), x,y - (70 +10*vehiculo.getPotenciaSalto()), gameBoard);
 			break;
 		}
 	}

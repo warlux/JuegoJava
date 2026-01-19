@@ -1,126 +1,118 @@
 package com.warlux.view;
 
-public class Scoreboard extends javax.swing.JPanel {
+import javax.swing.*;
+import java.awt.*;
+import java.io.Serial;
 
+public class ScoreBoard extends javax.swing.JPanel {
+
+	@Serial
+    private static final long serialVersionUID = 1L;
+    
+    // Constants for better maintainability
+    private static final Dimension PANEL_SIZE = new Dimension(300, 230);
+    private static final int ICON_SIZE = 20;
+    private static final int FIELD_WIDTH = 26;
+    private static final String DEFAULT_VALUE = "0";
 	/**
-	 * 
+	 * Creates new form ScoreBoard
 	 */
-	private static final long serialVersionUID = 1L;
-	/**
-	 * Creates new form Scoreboard
-	 */
-	public Scoreboard() {
+	public ScoreBoard() {
 		initComponents();
+	}
+
+	// Helper methods for cleaner code
+	private JLabel createLabel(final String text) {
+		return new JLabel(text);
+	}
+	
+	private JTextField createReadOnlyField(final String defaultValue) {
+		final JTextField field = new JTextField(defaultValue, FIELD_WIDTH);
+		field.setEditable(false);
+		field.setBorder(null);
+		field.setFocusable(false);
+		return field;
+	}
+	
+	private JLabel createIconLabel() {
+		final JLabel label = new JLabel();
+		label.setPreferredSize(new Dimension(ICON_SIZE, ICON_SIZE));
+		return label;
+	}
+	
+	private void setPanelSize(final Dimension size) {
+		setSize(size);
+		setMaximumSize(size);
+		setMinimumSize(size);
+		setPreferredSize(size);
 	}
 
 	private void initComponents() {
 
-		lblEnergia = new javax.swing.JLabel();
-		lblVidas = new javax.swing.JLabel();
-		jSeparator = new javax.swing.JSeparator();
-		lblSalto = new javax.swing.JLabel();
-		lblDinero = new javax.swing.JLabel();
-		lblModelo = new javax.swing.JLabel();
-		lblLlanta = new javax.swing.JLabel();
-		lblLlave = new javax.swing.JLabel();
-		lblCoraza = new javax.swing.JLabel();
-		txtDinero = new javax.swing.JTextField();
-		lblEstab = new javax.swing.JLabel();
-		LblTNT = new javax.swing.JLabel();
-		lblSierra = new javax.swing.JLabel();
-		txtSalto = new javax.swing.JTextField();
-		txtLlanta = new javax.swing.JTextField();
-		txtCoraza = new javax.swing.JTextField();
-		txtLlave = new javax.swing.JTextField();
-		txtTNT = new javax.swing.JTextField();
-		txtSierra = new javax.swing.JTextField();
-		imgModelo = new javax.swing.JLabel();
-        imgEnergia1 = new javax.swing.JLabel();
-        imgEnergia2 = new javax.swing.JLabel();
-        imgEnergia7 = new javax.swing.JLabel();
-        imgEnergia3 = new javax.swing.JLabel();
-        imgEnergia4 = new javax.swing.JLabel();
-        imgEnergia5 = new javax.swing.JLabel();
-        imgEnergia6 = new javax.swing.JLabel();
-        imgEstabilizador1 = new javax.swing.JLabel();
-        imgEstabilizador2 = new javax.swing.JLabel();
-        imgEstabilizador3 = new javax.swing.JLabel();
-        imgEstabilizador4 = new javax.swing.JLabel();
-        imgEstabilizador5 = new javax.swing.JLabel();
-        imgEstabilizador6 = new javax.swing.JLabel();
-        imgEstabilizador7 = new javax.swing.JLabel();
-        imgEstabilizador8 = new javax.swing.JLabel();
-        imgVida1 = new javax.swing.JLabel();
-        imgVida2 = new javax.swing.JLabel();
-        imgVida3 = new javax.swing.JLabel();
-        imgVida4 = new javax.swing.JLabel();
-        imgVida5 = new javax.swing.JLabel();
-        imgVida6 = new javax.swing.JLabel();
-        imgVida7 = new javax.swing.JLabel();
+		lblEnergia = createLabel("Energia");
+
+		lblVidas = createLabel("Vidas");
+
+		lblSalto = createLabel("Salto");
+
+		lblDinero = createLabel("Dinero");
+
+		lblModelo = createLabel("Modelo");
+
+		lblLlanta = createLabel("Llanta");
+
+		lblLlave = createLabel("Llave");
+
+		lblCoraza = createLabel("Coraza");
+
+		txtDinero = createReadOnlyField(DEFAULT_VALUE);
+
+		lblEstab = createLabel("Estabilizador");
+
+		LblTNT = createLabel("TNT");
+
+		lblSierra = createLabel("Sierra");
+
+		txtSalto = createReadOnlyField(DEFAULT_VALUE);
+
+		txtLlanta = createReadOnlyField(DEFAULT_VALUE);
+
+		txtCoraza = createReadOnlyField(DEFAULT_VALUE);
+
+		txtLlave = createReadOnlyField(DEFAULT_VALUE);
+
+		txtTNT = createReadOnlyField(DEFAULT_VALUE);
+
+		txtSierra = createReadOnlyField(DEFAULT_VALUE);
+
+		// Initialize remaining components
+		jSeparator = new JSeparator();
+		imgModelo = createIconLabel();
+        imgEnergia1 = createIconLabel();
+        imgEnergia2 = createIconLabel();
+        imgEnergia3 = createIconLabel();
+        imgEnergia4 = createIconLabel();
+        imgEnergia5 = createIconLabel();
+        imgEnergia6 = createIconLabel();
+        imgEnergia7 = createIconLabel();
+        imgEstabilizador1 = createIconLabel();
+        imgEstabilizador2 = createIconLabel();
+        imgEstabilizador3 = createIconLabel();
+        imgEstabilizador4 = createIconLabel();
+        imgEstabilizador5 = createIconLabel();
+        imgEstabilizador6 = createIconLabel();
+        imgEstabilizador7 = createIconLabel();
+        imgEstabilizador8 = createIconLabel();
+        imgVida1 = createIconLabel();
+        imgVida2 = createIconLabel();
+        imgVida3 = createIconLabel();
+        imgVida4 = createIconLabel();
+        imgVida5 = createIconLabel();
+        imgVida6 = createIconLabel();
+        imgVida7 = createIconLabel();
 
 		setFocusable(false);
-		setSize(new java.awt.Dimension(300, 230));
-		setMaximumSize(new java.awt.Dimension(300, 230));
-		setMinimumSize(new java.awt.Dimension(300, 230));
-		setPreferredSize(new java.awt.Dimension(300, 230));
-
-		lblEnergia.setText("Energia");
-
-		lblVidas.setText("Vidas");
-
-		lblSalto.setText("Salto");
-
-		lblDinero.setText("Dinero");
-
-		lblModelo.setText("Modelo");
-
-		lblLlanta.setText("Llanta");
-
-		lblLlave.setText("Llave");
-
-		lblCoraza.setText("Coraza");
-
-		txtDinero.setEditable(false);
-		txtDinero.setText("0");
-		txtDinero.setBorder(null);
-		txtDinero.setFocusable(false);
-
-		lblEstab.setText("Estabilizador");
-
-		LblTNT.setText("TNT");
-
-		lblSierra.setText("Sierra");
-
-		txtSalto.setEditable(false);
-		txtSalto.setText("0");
-		txtSalto.setBorder(null);
-		txtSalto.setFocusable(false);
-
-		txtLlanta.setEditable(false);
-		txtLlanta.setText("0");
-		txtLlanta.setBorder(null);
-		txtLlanta.setFocusable(false);
-
-		txtCoraza.setEditable(false);
-		txtCoraza.setText("0");
-		txtCoraza.setBorder(null);
-		txtCoraza.setFocusable(false);
-
-		txtLlave.setEditable(false);
-		txtLlave.setText("0");
-		txtLlave.setBorder(null);
-		txtLlave.setFocusable(false);
-
-		txtTNT.setEditable(false);
-		txtTNT.setText("0");
-		txtTNT.setBorder(null);
-		txtTNT.setFocusable(false);
-
-		txtSierra.setEditable(false);
-		txtSierra.setText("0");
-		txtSierra.setBorder(null);
-		txtSierra.setFocusable(false);
-
+		setPanelSize(PANEL_SIZE);
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(
@@ -565,5 +557,72 @@ public class Scoreboard extends javax.swing.JPanel {
 
 	public void setTxtTNT(javax.swing.JTextField txtTNT) {
 		this.txtTNT = txtTNT;
+	}
+	
+	// High-level business methods for better API
+	public void updateItemValue(String itemName, int value) {
+		switch (itemName) {
+		case "Salto":
+			txtSalto.setText(String.valueOf(value));
+			break;
+		case "Llanta":
+			txtLlanta.setText(String.valueOf(value));
+			break;
+		case "Coraza":
+			txtCoraza.setText(String.valueOf(value));
+			break;
+		case "Llave":
+			txtLlave.setText(String.valueOf(value));
+			break;
+		case "TNT":
+			txtTNT.setText(String.valueOf(value));
+			break;
+		case "Sierra":
+			txtSierra.setText(String.valueOf(value));
+			break;
+		case "Dinero":
+			txtDinero.setText(String.valueOf(value));
+			break;
+		}
+	}
+	
+	// Method to update all item values at once for better performance
+	public void updateAllItemValues(int salto, int llanta, int coraza, int llave, int tnt, int sierra, int dinero) {
+		txtSalto.setText(String.valueOf(salto));
+		txtLlanta.setText(String.valueOf(llanta));
+		txtCoraza.setText(String.valueOf(coraza));
+		txtLlave.setText(String.valueOf(llave));
+		txtTNT.setText(String.valueOf(tnt));
+		txtSierra.setText(String.valueOf(sierra));
+		txtDinero.setText(String.valueOf(dinero));
+	}
+	
+	// High-level methods for icon management
+	public void updateVidas(int count) {
+		updateIconArray(new JLabel[]{imgVida1, imgVida2, imgVida3, imgVida4, imgVida5, imgVida6, imgVida7}, count);
+	}
+	
+	public void updateEnergia(int count) {
+		updateIconArray(new JLabel[]{imgEnergia1, imgEnergia2, imgEnergia3, imgEnergia4, imgEnergia5, imgEnergia6, imgEnergia7}, count);
+	}
+	
+	public void updateEstabilizador(int count) {
+		updateIconArray(new JLabel[]{imgEstabilizador1, imgEstabilizador2, imgEstabilizador3, imgEstabilizador4, imgEstabilizador5, imgEstabilizador6, imgEstabilizador7, imgEstabilizador8}, count);
+	}
+	
+	public void updateModelo(@SuppressWarnings("unused") Icon icon) {
+		imgModelo.setIcon(icon);
+	}
+	
+	private void updateIconArray(final JLabel[] icons, final int count) {
+		for (int i = 0; i < icons.length; i++) {
+			icons[i].setIcon(i < count ? createDefaultIcon() : null);
+		}
+	}
+	
+	@SuppressWarnings("unused")
+	private Icon createDefaultIcon() {
+		// This would be replaced with actual icon loading
+		return null;
 	}
 }

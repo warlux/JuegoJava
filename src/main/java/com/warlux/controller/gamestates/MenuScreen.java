@@ -3,14 +3,14 @@ package com.warlux.controller.gamestates;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import com.warlux.view.Tablero;
+import com.warlux.view.GameBoard;
 
 public class MenuScreen implements Commons {
 	
-	private Tablero tablero;
+	private GameBoard gameBoard;
 	
-	public MenuScreen(Tablero tablero){
-		this.tablero = tablero;
+	public MenuScreen(GameBoard gameBoard){
+		this.gameBoard = gameBoard;
 	}
 	
 	public void draw(Graphics2D g2d) {

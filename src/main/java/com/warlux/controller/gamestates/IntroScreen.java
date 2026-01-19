@@ -7,21 +7,21 @@ import java.awt.Toolkit;
 import java.util.Objects;
 
 import com.warlux.constants.AssetsPath;
-import com.warlux.view.Tablero;
+import com.warlux.view.GameBoard;
 
 public class IntroScreen implements Commons{
 	
-	private Tablero tablero;
+	private GameBoard gameBoard;
 	
-	public IntroScreen(Tablero tablero){
-		this.tablero = tablero;
+	public IntroScreen(GameBoard gameBoard){
+		this.gameBoard = gameBoard;
 	}
 
 	public void draw(Graphics2D g2d) {
-		tablero.setBackground(Color.BLACK);
+		gameBoard.setBackground(Color.BLACK);
 		Toolkit t = Toolkit.getDefaultToolkit ();
         Image imagen = t.getImage(Objects.requireNonNull(getClass().getResource(AssetsPath.OBJETOS_LOGO_GIF)));
-		g2d.drawImage(imagen,0,150,tablero);
+		g2d.drawImage(imagen,0,150, gameBoard);
 	}
 	
 }

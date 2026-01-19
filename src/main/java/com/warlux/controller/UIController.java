@@ -4,22 +4,21 @@ import javax.swing.ImageIcon;
 
 import com.warlux.constants.AssetsPath;
 import com.warlux.domain.objetos.Scorecard;
-import com.warlux.view.Itemboard;
-import com.warlux.view.Scoreboard;
+import com.warlux.view.ItemBoard;
+import com.warlux.view.ScoreBoard;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class UIController {
 	
-	private Scoreboard sb;
+	private ScoreBoard sb;
 	private Scorecard score;
-	private Itemboard ib;
+	private ItemBoard ib;
 	private String itemSeleccionado;
 	private String[] itemsSeleccion = {"salto","coraza","sierra","tnt","llaveN","llaveS1"};
 	private int apuntadorItem;
 	
-	public UIController(Scoreboard scoreboard, Itemboard itemboard, Scorecard score){
+	public UIController(ScoreBoard scoreboard, ItemBoard itemboard, Scorecard score){
 		sb = scoreboard;
 		ib = itemboard;
 		this.score = score;

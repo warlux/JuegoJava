@@ -9,21 +9,21 @@ import com.warlux.controller.OverworldController;
 import com.warlux.domain.objetos.Scorecard;
 import com.warlux.domain.objetos.overworld.MapaOverworld;
 import com.warlux.domain.objetos.overworld.PuntoOverworld;
-import com.warlux.view.Tablero;
+import com.warlux.view.GameBoard;
 
 public class Overworld implements Commons {
 
 	public final int SPEED = 5;
 	
-	private Tablero tablero;
+	private GameBoard gameBoard;
 	private MapaOverworld mapa;
 	private OverworldController oc;
 	private boolean enMovimiento;
 	private PuntoOverworld ultimoPunto;
 	private Scorecard score;
 
-	public Overworld(Tablero tablero, Scorecard score) {
-		this.tablero = tablero;
+	public Overworld(GameBoard gameBoard, Scorecard score) {
+		this.gameBoard = gameBoard;
 		this.score = score;
 		mapa = new MapaOverworld();
 		oc = new OverworldController(mapa);
@@ -102,15 +102,15 @@ public class Overworld implements Commons {
 
 	public void draw(Graphics2D g2d) {
 		g2d.translate(300 / 2 - mapa.getPuntero().getX(), 600 / 2 - mapa.getPuntero().getY());
-		g2d.drawImage(mapa.getImagenFondo().getImage(),0,0, tablero);		
+		g2d.drawImage(mapa.getImagenFondo().getImage(),0,0, gameBoard);
 		Iterator iter =  mapa.getListaPuntos().entrySet().iterator();
 		while (iter.hasNext()){
 			Map.Entry entry = (Map.Entry) iter.next();
 			PuntoOverworld punto = (PuntoOverworld) entry.getValue();
-			g2d.drawImage(punto.getImagen(),punto.getRectanglePunto().x, punto.getRectanglePunto().y, tablero);
+			g2d.drawImage(punto.getImagen(),punto.getRectanglePunto().x, punto.getRectanglePunto().y, gameBoard);
 		}
 		g2d.drawImage(mapa.getPuntero().getImagen(), mapa.getPuntero().getX(),
-				mapa.getPuntero().getY(), tablero);
+				mapa.getPuntero().getY(), gameBoard);
 	}
 
 	public OverworldController getOc() {

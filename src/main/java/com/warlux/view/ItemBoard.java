@@ -1,12 +1,21 @@
 package com.warlux.view;
 
-public class Itemboard extends javax.swing.JPanel {
+import java.awt.*;
+import java.io.Serial;
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	public Itemboard() {
+public class ItemBoard extends javax.swing.JPanel {
+
+
+	@Serial
+    private static final long serialVersionUID = 1L;
+
+    private static final Dimension PANEL_SIZE = new Dimension(300, 70);
+
+    private javax.swing.JLabel lblItem;
+    private javax.swing.JTextField txtItem;
+    private javax.swing.JTextField txtConsola;
+
+	public ItemBoard() {
         initComponents();
     }
 
@@ -17,9 +26,9 @@ public class Itemboard extends javax.swing.JPanel {
         txtConsola = new javax.swing.JTextField();
 
         setFocusable(false);
-        setMaximumSize(new java.awt.Dimension(300, 70));
-        setMinimumSize(new java.awt.Dimension(300, 70));
-        setPreferredSize(new java.awt.Dimension(300, 70));
+        setMaximumSize(PANEL_SIZE);
+        setMinimumSize(PANEL_SIZE);
+        setPreferredSize(PANEL_SIZE);
 
         txtItem.setEditable(false);
         txtItem.setText("0");
@@ -83,7 +92,4 @@ public class Itemboard extends javax.swing.JPanel {
 		this.txtConsola = txtConsola;
 	}
 
-	private javax.swing.JLabel lblItem;
-    private javax.swing.JTextField txtItem;
-    private javax.swing.JTextField txtConsola;
 }

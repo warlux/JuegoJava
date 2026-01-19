@@ -4,7 +4,7 @@ import com.warlux.domain.objetos.Laser;
 import com.warlux.domain.objetos.LaserGuiado;
 import com.warlux.domain.objetos.Mortar;
 import com.warlux.domain.objetos.Tnt;
-import com.warlux.view.Tablero;
+import com.warlux.view.GameBoard;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -145,22 +145,22 @@ public class CampoProyectiles {
         return false;
     }
 
-    public synchronized void draw(Graphics2D g2d, Tablero tablero) {
+    public synchronized void draw(Graphics2D g2d, GameBoard gameBoard) {
         for (Tnt tnt : listaTnt) {
-            g2d.drawImage(tnt.getImagen(), tnt.getX(), tnt.getY(), tablero);
+            g2d.drawImage(tnt.getImagen(), tnt.getX(), tnt.getY(), gameBoard);
         }
         CopyOnWriteArrayList<Mortar> mortarIterator = new CopyOnWriteArrayList<>();
         mortarIterator.addAll(listaMortar);
         for (Mortar mortar : mortarIterator) {
             if(mortar != null){
-                g2d.drawImage(mortar.getImagen(), mortar.getX(), mortar.getY(), tablero);
+                g2d.drawImage(mortar.getImagen(), mortar.getX(), mortar.getY(), gameBoard);
             }            
         }
         for (Laser laser : listaLaser) {
-            g2d.drawImage(laser.getImagen(), laser.getX(), laser.getY(), tablero);
+            g2d.drawImage(laser.getImagen(), laser.getX(), laser.getY(), gameBoard);
         }
         for (LaserGuiado laserGuiado : listaLaserGuiado) {
-            g2d.drawImage(laserGuiado.getImagen(), laserGuiado.getX(), laserGuiado.getY(), tablero);
+            g2d.drawImage(laserGuiado.getImagen(), laserGuiado.getX(), laserGuiado.getY(), gameBoard);
         }
     }
 }
